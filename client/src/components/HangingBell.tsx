@@ -301,15 +301,24 @@ export default function HangingBell() {
     }
     cv.addEventListener('pointerdown', handlePointer)
 
-    /* ---- loop ---- */
+    /* ---- loop with IntersectionObserver pause ---- */
     let running = true
+    let isVisible = true
     let last = 0, acc = 0, animId = 0
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting
+      },
+      { threshold: 0.02 }
+    )
+    io.observe(stage)
 
     function frame(ts: number) {
       if (!running) return
       const dt = Math.min(0.05, (ts - last) / 1000 || 0.016)
       last = ts
-      if (ready) {
+      if (ready && isVisible) {
         acc += dt
         while (acc >= DT) { step(); acc -= DT }
         render()
@@ -322,6 +331,7 @@ export default function HangingBell() {
       running = false
       cancelAnimationFrame(animId)
       cv.removeEventListener('pointerdown', handlePointer)
+      io.disconnect()
       ro.disconnect()
     }
   }, [])

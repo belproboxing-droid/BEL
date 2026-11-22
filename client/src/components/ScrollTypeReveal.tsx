@@ -72,11 +72,14 @@ export function ScrollTypeSection({
     restDelta: 0.0001,
   });
 
-  const sectionOpacity = useTransform(smoothProgress, [0, 0.12], [0.65, 1]);
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
+  const skipAnimation = prefersReducedMotion || isMobile;
+
+  const sectionOpacity = useTransform(smoothProgress, [0, 0.08], [0.9, 1]);
 
   return (
     <ScrollProgressContext.Provider
-      value={prefersReducedMotion ? scrollYProgress : smoothProgress}
+      value={skipAnimation ? scrollYProgress : smoothProgress}
     >
       <motion.section
         ref={targetRef as React.RefObject<HTMLElement>}
@@ -85,8 +88,8 @@ export function ScrollTypeSection({
         aria-label={ariaLabel}
         style={{
           ...style,
-          opacity: prefersReducedMotion ? 1 : sectionOpacity,
-          willChange: prefersReducedMotion ? style?.willChange : "opacity",
+          opacity: skipAnimation ? 1 : sectionOpacity,
+          willChange: skipAnimation ? style?.willChange : "opacity",
         }}
       >
         {children}
@@ -137,6 +140,9 @@ export function ScrollTypeText({
   const progressSource = sectionProgress ?? fallbackProgress;
   const prefersReducedMotion = useReducedMotion();
 
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
+  const skipTyping = prefersReducedMotion || isMobile;
+
   const cleanText = useMemo(() => (children || "").trim(), [children]);
   const characters = useMemo(() => Array.from(cleanText), [cleanText]);
 
@@ -152,14 +158,14 @@ export function ScrollTypeText({
   );
 
   const getVisibleCount = () => {
-    if (prefersReducedMotion) return characters.length;
+    if (skipTyping) return characters.length;
     return Math.floor(typingProgress.get() * characters.length);
   };
 
   const [visibleCount, setVisibleCount] = useState(getVisibleCount);
 
   useMotionValueEvent(typingProgress, "change", (latest) => {
-    const nextCount = prefersReducedMotion
+    const nextCount = skipTyping
       ? characters.length
       : Math.min(
           characters.length,
@@ -171,7 +177,7 @@ export function ScrollTypeText({
 
   useEffect(() => {
     setVisibleCount(getVisibleCount());
-  }, [cleanText, characters.length, prefersReducedMotion, typingProgress]);
+  }, [cleanText, characters.length, skipTyping, typingProgress]);
 
   const Tag = as;
   const visibleText = characters.slice(0, visibleCount).join("");

@@ -316,16 +316,17 @@ export default function Teams() {
       ctx.restore()
     }
 
-    /* ---- Loop ---- */
+    /* ---- Loop with IntersectionObserver pause ---- */
     resetSimulation()
     let last = 0
     let acc = 0
+    let isIntersecting = true
 
     function frame(ts: number) {
       if (!running) return
       const dt = Math.min(0.05, (ts - last) / 1000 || 0.016)
       last = ts
-      if (ready) {
+      if (ready && isIntersecting) {
         acc += dt
         while (acc >= DT) {
           step()
@@ -341,6 +342,7 @@ export default function Teams() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          isIntersecting = entry.isIntersecting
           if (entry.isIntersecting && !triggered) {
             triggered = true
             setIsRevealed(true)
@@ -348,7 +350,7 @@ export default function Teams() {
           }
         })
       },
-      { threshold: 0.15 }
+      { threshold: 0.05 }
     )
 
     observer.observe(section)

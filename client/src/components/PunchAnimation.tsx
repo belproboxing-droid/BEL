@@ -32,8 +32,8 @@ export default function PunchAnimation({ containerRef }: PunchAnimationProps) {
     }
 
     // Set transform pivots to outer forearm edges
-    gsap.set(leftArm, { transformOrigin: '0% 50%', willChange: 'transform, filter, opacity' })
-    gsap.set(rightArm, { transformOrigin: '100% 50%', willChange: 'transform, filter, opacity' })
+    gsap.set(leftArm, { transformOrigin: '0% 50%', willChange: 'transform, opacity' })
+    gsap.set(rightArm, { transformOrigin: '100% 50%', willChange: 'transform, opacity' })
 
     // Continuous, scroll-scrubbed punch timeline fully synced with section entrance
     const tl = gsap.timeline()
@@ -44,13 +44,11 @@ export default function PunchAnimation({ containerRef }: PunchAnimationProps) {
       xPercent: -20,
       scale: 0.94,
       rotation: -2,
-      filter: 'brightness(0.9) blur(1px)',
     })
     tl.set(rightArm, {
       xPercent: 20,
       scale: 0.94,
       rotation: 2,
-      filter: 'brightness(0.9) blur(1px)',
     })
 
     tl.to(
@@ -83,7 +81,6 @@ export default function PunchAnimation({ containerRef }: PunchAnimationProps) {
         xPercent: 0,
         rotation: 0,
         scale: 1.0,
-        filter: 'brightness(1.15) blur(0px)',
         duration: 0.3,
         ease: 'power3.in',
       },
@@ -95,7 +92,6 @@ export default function PunchAnimation({ containerRef }: PunchAnimationProps) {
         xPercent: 0,
         rotation: 0,
         scale: 1.0,
-        filter: 'brightness(1.15) blur(0px)',
         duration: 0.3,
         ease: 'power3.in',
       },
@@ -150,7 +146,6 @@ export default function PunchAnimation({ containerRef }: PunchAnimationProps) {
         rotation: 0,
         scale: 1.0,
         opacity: 0.85,
-        filter: 'brightness(1.0) blur(0px)',
         duration: 0.35,
         ease: 'none',
       },

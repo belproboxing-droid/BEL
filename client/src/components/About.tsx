@@ -89,8 +89,19 @@ export default function About() {
       }))
     }
 
+    let isVisible = true
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting
+      },
+      { threshold: 0.05 }
+    )
+    if (sectionRef.current) io.observe(sectionRef.current)
+    else io.observe(cv)
+
     const frame = (t: number) => {
       animId = requestAnimationFrame(frame)
+      if (!isVisible) return
       ctx.clearRect(0, 0, w, h)
       for (const p of ps) {
         const a = noise(p.x * 3.2, p.y * 3.2 + t * 6e-5) * 12.566
@@ -114,6 +125,7 @@ export default function About() {
 
     return () => {
       cancelAnimationFrame(animId)
+      io.disconnect()
       ro.disconnect()
     }
   }, [])

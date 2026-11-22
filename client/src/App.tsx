@@ -107,42 +107,48 @@ export default function App() {
         if (targetEl) {
           e.preventDefault()
 
-          // Calculate exact document scroll position so sticky panels dock at top: 0
+          // Calculate exact document scroll position:
+          // - Desktop: panels are sticky, calculate cumulative stack offset
+          // - Mobile: panels flow naturally, use natural document offset
           let targetY = 0
           if (targetId !== 'top') {
-            const stack = document.querySelector('.stack')
-            if (stack) {
-              const panels = Array.from(stack.children) as HTMLElement[]
-              const targetPanelIndex = panels.findIndex(
-                (p) => p.id === targetId || p.contains(targetEl)
-              )
+            const isDesktop = window.innerWidth >= 1024
+            if (isDesktop) {
+              const stack = document.querySelector('.stack')
+              if (stack) {
+                const panels = Array.from(stack.children) as HTMLElement[]
+                const targetPanelIndex = panels.findIndex(
+                  (p) => p.id === targetId || p.contains(targetEl)
+                )
 
-              if (targetPanelIndex > 0) {
-                const currentScrollY = lenisRef.current?.scroll ?? window.scrollY
-                const stackDocTop = Math.max(0, stack.getBoundingClientRect().top + currentScrollY)
-                let sumHeight = stackDocTop
+                if (targetPanelIndex > 0) {
+                  const currentScrollY = lenisRef.current?.scroll ?? window.scrollY
+                  const stackDocTop = Math.max(0, stack.getBoundingClientRect().top + currentScrollY)
+                  let sumHeight = stackDocTop
 
-                for (let i = 0; i < targetPanelIndex; i++) {
-                  sumHeight += panels[i].offsetHeight
+                  for (let i = 0; i < targetPanelIndex; i++) {
+                    sumHeight += panels[i].offsetHeight
+                  }
+
+                  // If targetEl is nested inside the panel (e.g. #founder inside #about)
+                  if (panels[targetPanelIndex] !== targetEl && panels[targetPanelIndex].contains(targetEl)) {
+                    sumHeight += targetEl.offsetTop
+                  }
+
+                  targetY = sumHeight
+                } else if (targetPanelIndex === 0) {
+                  targetY = 0
+                } else {
+                  const currentScrollY = lenisRef.current?.scroll ?? window.scrollY
+                  targetY = targetEl.getBoundingClientRect().top + currentScrollY
                 }
-
-                // If targetEl is nested inside the panel (e.g. #founder inside #about)
-                if (panels[targetPanelIndex] !== targetEl && panels[targetPanelIndex].contains(targetEl)) {
-                  sumHeight += targetEl.offsetTop
-                }
-
-                targetY = sumHeight
-              } else if (targetPanelIndex === 0) {
-                targetY = 0
               } else {
-                // Fallback for elements outside .stack
                 const currentScrollY = lenisRef.current?.scroll ?? window.scrollY
                 targetY = targetEl.getBoundingClientRect().top + currentScrollY
               }
             } else {
-              // Fallback if no .stack found
-              const currentScrollY = lenisRef.current?.scroll ?? window.scrollY
-              targetY = targetEl.getBoundingClientRect().top + currentScrollY
+              // Mobile: direct bounding rect scroll top
+              targetY = targetEl.getBoundingClientRect().top + window.scrollY
             }
           }
 
@@ -192,9 +198,12 @@ export default function App() {
     return () => window.removeEventListener('hashchange', onHashChange)
   }, [route])
 
-  // Smooth scroll with Lenis (active on home page)
+  // Smooth scroll with Lenis on desktop (native momentum scroll on mobile for top performance)
   useEffect(() => {
     if (route !== 'home') return
+
+    // On mobile screens (< 1024px), native browser inertial momentum scroll provides buttery 120Hz/60Hz touch scrolling without GPU thread hitching
+    if (window.innerWidth < 1024) return
 
     const lenis = new Lenis({
       duration: 1.2,
