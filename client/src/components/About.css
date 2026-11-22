@@ -1,0 +1,388 @@
+/* About.css — Responsive BEL About layout */
+
+/* ── Variables (scoped within .about-frame to avoid leaking) ── */
+.about-frame {
+  --gold: #C5A15A;
+  --gold-d: #8C6B37;
+  --ivory: #F2E9D7;
+  --mute: #A7A095;
+  --ink: #0B0B0A;
+  --display: 'Archivo', 'Impact', 'Arial Narrow', sans-serif;
+  --head: 'Archivo', 'Arial Narrow', sans-serif;
+  --body: 'Archivo', system-ui, sans-serif;
+  --ease: cubic-bezier(.32, .72, 0, 1);
+}
+
+/* ── Responsive font-size / margin helpers ── */
+.about-f { font-size: var(--m); }
+.about-g { margin-top: var(--gm); }
+
+@media (min-width: 1024px) {
+  .about-f { font-size: var(--d); }
+  .about-g { margin-top: var(--gd); }
+}
+
+/* ── Typography tokens ── */
+.about-disp {
+  font-family: var(--display);
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.about-goldtxt {
+  background: linear-gradient(180deg, #E8C887, #C5A15A 55%, #8C6B37);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ── Brutalist type: extra-condensed black for display, semi-condensed for labels ── */
+.about-disp,
+.about-name,
+.about-big,
+.about-pt {
+  font-weight: 900;
+  font-stretch: 62%;
+  letter-spacing: -.01em;
+}
+.about-eyebrow,
+.about-lab,
+.about-cap,
+.about-yr,
+.about-hl {
+  font-stretch: 72%;
+}
+.about-lead { font-weight: 500; }
+
+/* ── Frame container (fills 100vh card panel) ── */
+.about-frame {
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  min-height: 100dvh;
+  border-block: 1px solid rgba(197, 161, 90, .25);
+}
+
+/* ── Background image ── */
+.about-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 30% 100%;
+  z-index: -3;
+}
+
+/* ── Scrim overlay ── */
+.about-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(11,11,10,.62) 0%, rgba(11,11,10,.12) 40%, rgba(11,11,10,.55) 62%, rgba(11,11,10,.9) 72%, rgba(11,11,10,.96) 100%),
+    linear-gradient(0deg, #0B0B0A 0%, rgba(11,11,10,.85) 18%, transparent 38%);
+}
+
+/* ── Canvas dust overlay ── */
+.about-dust {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ── Main content grid: BEL info on Left, Founder on Right (Laptop + Desktop) ── */
+.about-main {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 4.5rem 1.25rem 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .about-main {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 5rem 3rem 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .about-main {
+    padding: 5.5rem 4rem 2.5rem;
+    gap: 4rem;
+  }
+}
+
+/* ── Left block (BEL info) ── */
+.about-left {
+  padding: 0;
+  max-width: 44rem;
+}
+.about-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 1.1em;
+  font: 500 var(--m) / 1 var(--head);
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+@media (min-width: 1024px) {
+  .about-eyebrow {
+    font-size: 1.1vw;
+  }
+}
+.about-eyebrow i {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), rgba(197, 161, 90, .1));
+}
+.about-frame h2 {
+  margin: 0;
+  line-height: .93;
+  letter-spacing: .005em;
+}
+.about-frame h2 span { display: block; }
+.about-w {
+  color: #fff;
+  text-shadow: 0 2px 40px rgba(0, 0, 0, .6);
+}
+.about-lead {
+  color: var(--ivory);
+  line-height: 1.25;
+  max-width: 32em;
+  text-wrap: balance;
+}
+.about-rule {
+  width: 3.2vw;
+  min-width: 44px;
+  height: 1px;
+  background: var(--gold);
+}
+.about-tag {
+  color: var(--mute);
+  line-height: 1.35;
+}
+
+/* ── Right panel (Founder info) ── */
+.about-panel {
+  margin: 1.5rem 0 0;
+  padding-left: 1.25rem;
+  border-left: 1px solid rgba(197, 161, 90, .45);
+}
+
+@media (min-width: 1024px) {
+  .about-panel {
+    margin: 0;
+    padding-left: 2rem;
+    border-left: 1px solid rgba(197, 161, 90, .5);
+  }
+}
+
+.about-lab {
+  display: flex;
+  align-items: center;
+  gap: 1.1em;
+  font-family: var(--head);
+  font-weight: 500;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  white-space: nowrap;
+}
+.about-lab i {
+  flex: 1;
+  height: 1px;
+  background: rgba(197, 161, 90, .55);
+}
+.about-name {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 400;
+  line-height: 1.05;
+  color: #fff;
+  letter-spacing: -.005em;
+  word-break: break-word;
+}
+.about-quals {
+  letter-spacing: .08em;
+  color: var(--ivory);
+  line-height: 1.35;
+}
+@media (min-width: 640px) {
+  .about-name { white-space: nowrap; line-height: 1; }
+  .about-quals { white-space: nowrap; letter-spacing: .12em; }
+}
+.about-hr {
+  height: 1px;
+  background: rgba(197, 161, 90, .4);
+}
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.about-stats > div + div {
+  border-left: 1px solid rgba(197, 161, 90, .4);
+  padding-left: 7%;
+}
+.about-big {
+  font-family: var(--display);
+  line-height: 1;
+  color: var(--gold);
+}
+.about-cap {
+  font-family: var(--head);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  line-height: 1.3;
+  color: var(--ivory);
+}
+
+/* Honors layout */
+.about-hon {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 1rem;
+}
+.about-hon > div:nth-child(2) {
+  border-left: 1px solid rgba(197, 161, 90, .4);
+  padding-left: 9%;
+}
+.about-hon > div:nth-child(3) {
+  grid-column: span 2;
+  border-left: 0;
+  border-top: 1px solid rgba(197, 161, 90, .3);
+  padding-top: 0.6rem;
+  padding-left: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+@media (min-width: 640px) {
+  .about-hon {
+    grid-template-columns: 1fr 1fr 1.25fr;
+    gap: 0;
+  }
+  .about-hon > div + div {
+    border-left: 1px solid rgba(197, 161, 90, .4);
+    padding-left: 9%;
+  }
+  .about-hon > div:nth-child(3) {
+    grid-column: auto;
+    border-top: 0;
+    padding-top: 0;
+    display: block;
+  }
+}
+.about-yr {
+  font-family: var(--head);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--gold);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.about-hl {
+  font-family: var(--head);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  line-height: 1.35;
+  color: var(--mute);
+}
+
+/* ── Bottom pillars strip ── */
+.about-strip {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  border-block: 1px solid rgba(197, 161, 90, .3);
+  background: rgba(11, 11, 10, .85);
+}
+.about-pillar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.1rem;
+}
+.about-pillar + .about-pillar {
+  border-top: 1px solid rgba(197, 161, 90, .2);
+}
+.about-ic {
+  flex: none;
+  width: 2.1rem;
+  height: 2.1rem;
+  color: var(--gold);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.about-pt {
+  font-family: var(--display);
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: .01em;
+  white-space: nowrap;
+}
+.about-ps {
+  color: var(--mute);
+  line-height: 1.3;
+  margin-top: .45em;
+}
+
+/* ── Tablet: 2-col strip ── */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .about-strip { grid-template-columns: 1fr 1fr; }
+  .about-pillar + .about-pillar { border-top: 0; }
+  .about-pillar:nth-child(even) { border-left: 1px solid rgba(197, 161, 90, .2); }
+  .about-pillar:nth-child(n+3) { border-top: 1px solid rgba(197, 161, 90, .2); }
+}
+
+/* ── Laptop & Desktop: 4 columns across bottom ── */
+@media (min-width: 1024px) {
+  .about-strip {
+    grid-template-columns: repeat(4, 1fr);
+    align-items: stretch;
+  }
+  .about-pillar {
+    padding: 1rem 1.5rem;
+    gap: 1.25rem;
+  }
+  .about-pillar:first-child { padding-left: 3rem; }
+  .about-pillar + .about-pillar {
+    border-top: 0;
+    border-left: 1px solid rgba(197, 161, 90, .3);
+  }
+  .about-ic { width: 2.6rem; height: 2.6rem; }
+}
+
+@media (min-width: 1280px) {
+  .about-pillar {
+    padding: 1.2rem 2rem;
+    gap: 1.5rem;
+  }
+  .about-pillar:first-child { padding-left: 4rem; }
+  .about-ic { width: 3rem; height: 3rem; }
+}

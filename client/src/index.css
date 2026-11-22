@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  /* User-defined 7-Color Palette */
+  --color-arena-black: #0B0B0A;
+  --color-charcoal: #191816;
+  --color-gold: #C5A15A;
+  --color-brass: #8C6B37;
+  --color-ivory: #F2E9D7;
+  --color-stone: #A7A095;
+  --color-oxblood: #4A1E1B;
+
+  /* Legacy aliases mapped to new palette */
+  --color-ink: #0B0B0A;
+  --color-ash: #A7A095;
+  --color-crimson: #4A1E1B;
+
+  /* Fonts */
+  --font-display: "Bebas Neue", "League Gothic", Impact, sans-serif;
+  --font-heading: "Oswald", sans-serif;
+  --font-body: "Barlow", sans-serif;
+
+  /* Easing */
+  --ease-heavy: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+html {
+  background-color: #0B0B0A;
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  background-color: #0B0B0A;
+  color: #F2E9D7;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+/* Stacking Card Panels Transition */
+.stack {
+  position: relative;
+  width: 100%;
+}
+
+.panel {
+  position: sticky !important;
+  top: 0;                  /* stays pinned when it reaches the top */
+  min-height: 100vh;       /* each section fills the screen */
+  min-height: 100dvh;
+  background: var(--bg, #0B0B0A);   /* must be opaque so the next one covers it */
+  border-radius: 28px 28px 0 0;
+  box-shadow: 0 -24px 60px rgba(0, 0, 0, 0.65);  /* shadow on the incoming section */
+  border-top: 1px solid rgba(197, 161, 90, 0.22);
+}
+
+.panel:first-child {
+  border-radius: 0;
+  box-shadow: none;
+  border-top: none;
+}
+
+/* Ensure each successive panel paints cleanly above earlier panels */
+.panel:nth-child(1) { z-index: 1; }
+.panel:nth-child(2) { z-index: 2; }
+.panel:nth-child(3) { z-index: 3; }
+.panel:nth-child(4) { z-index: 4; }
+.panel:nth-child(5) { z-index: 5; }
+.panel:nth-child(6) { z-index: 6; }
+.panel:nth-child(7) { z-index: 7; }
+.panel:nth-child(8) { z-index: 8; }
+
+/* Custom fine scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0B0A;
+}
+::-webkit-scrollbar-thumb {
+  background: #191816;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8C6B37;
+}
