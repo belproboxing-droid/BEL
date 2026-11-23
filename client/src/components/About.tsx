@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react'
 import aboutCornerRing from '../assets/images/about-corner-ring.jpg'
-import belLogo from '../assets/images/bel-logo.webp'
 import { ScrollTypeSection, ScrollTypeText } from './ScrollTypeReveal'
 import './About.css'
 
@@ -154,10 +153,9 @@ export default function About() {
       <div className="about-main">
         {/* Left block */}
         <div className="about-left">
-          <div className="about-eyebrow flex items-center gap-2">
-            <img src={belLogo} alt="BEL" className="w-5 h-5 object-contain filter drop-shadow-[0_1px_4px_rgba(197,161,90,0.5)]" />
+          <div className="about-eyebrow">
             <ScrollTypeText as="span" start={0.02} end={0.16}>
-              INTRODUCTION · SEASON 1 • TAMIL NADU
+              About BEL
             </ScrollTypeText>
             <i />
           </div>
@@ -166,8 +164,8 @@ export default function About() {
             className="about-disp about-f about-g"
             style={
               {
-                '--m': 'clamp(2rem, 9vw, 3.2rem)',
-                '--d': 'clamp(2.2rem, 3.6vw, 3.8rem)',
+                '--m': 'clamp(2.2rem, 10vw, 3.6rem)',
+                '--d': 'clamp(2.4rem, 4vw, 4.2rem)',
                 '--gm': '0.75rem',
                 '--gd': '.6vw',
               } as React.CSSProperties
@@ -177,7 +175,7 @@ export default function About() {
             as="span"
             className="about-w block"
             start={0.08}
-            end={0.28}
+            end={0.30}
           >
             India's Professional
           </ScrollTypeText>
@@ -185,7 +183,7 @@ export default function About() {
             as="span"
             className="about-goldtxt block"
             start={0.22}
-            end={0.44}
+            end={0.46}
           >
             Boxing League
           </ScrollTypeText>
@@ -195,55 +193,29 @@ export default function About() {
           className="about-g"
           style={
             {
-              '--gm': '1rem',
-              '--gd': '1.3vw',
+              '--gm': '1.1rem',
+              '--gd': '1.5vw',
             } as React.CSSProperties
           }
         >
-          <div className="space-y-3">
-            <div>
-              <span className="font-heading text-[11px] font-bold tracking-[0.2em] text-[#C5A15A] uppercase block">
-                WHAT IS BEL?
-              </span>
-              <ScrollTypeText
-                as="p"
-                className="about-lead about-f text-[#F2E9D7] mt-1"
-                style={{ '--m': '0.92rem', '--d': '1.25vw', margin: 0, lineHeight: 1.45 } as React.CSSProperties}
-                start={0.30}
-                end={0.58}
-              >
-                A structured city-based professional boxing league combining sport, entertainment and media.
-              </ScrollTypeText>
-            </div>
+          <ScrollTypeText
+            as="p"
+            className="about-lead about-f text-[#F2E9D7]"
+            style={{ '--m': '0.92rem', '--d': '1.3vw', margin: 0, lineHeight: 1.45 } as React.CSSProperties}
+            start={0.34}
+            end={0.65}
+          >
+            A structured city-based professional boxing league combining sport, entertainment and media.
+          </ScrollTypeText>
 
-            <ScrollTypeText
-              as="p"
-              className="font-body text-xs sm:text-sm text-[#A7A095] leading-relaxed"
-              start={0.42}
-              end={0.68}
-            >
-              BEL is designed to build a scalable professional boxing property from Tamil Nadu, with a clear pathway toward wider Indian expansion.
-            </ScrollTypeText>
-
-            <div className="p-3 bg-[#191816]/90 border border-[#C5A15A]/35 shadow-sm">
-              <ScrollTypeText
-                as="p"
-                className="font-heading text-xs sm:text-[13px] font-semibold text-[#F2E9D7] tracking-wider uppercase"
-                start={0.50}
-                end={0.74}
-              >
-                Build the next generation of Indian boxing with BEL.
-              </ScrollTypeText>
-              <ScrollTypeText
-                as="p"
-                className="mt-1 font-heading text-[11px] text-[#C5A15A] tracking-widest uppercase font-bold"
-                start={0.58}
-                end={0.82}
-              >
-                If cricket has IPL, boxing deserves BEL.
-              </ScrollTypeText>
-            </div>
-          </div>
+          <ScrollTypeText
+            as="p"
+            className="font-body text-xs sm:text-sm text-[#A7A095] leading-relaxed mt-2.5"
+            start={0.45}
+            end={0.75}
+          >
+            BEL is designed to build a scalable professional boxing property from Tamil Nadu, with a clear pathway toward wider Indian expansion.
+          </ScrollTypeText>
 
           <div
             className="about-rule about-g"
@@ -256,17 +228,32 @@ export default function About() {
             style={
               {
                 '--m': '.82rem',
-                '--d': '1.15vw',
-                '--gm': '.75rem',
-                '--gd': '1.1vw',
+                '--d': '1.3vw',
+                '--gm': '.9rem',
+                '--gd': '1.3vw',
                 marginBottom: 0,
               } as React.CSSProperties
             }
-            start={0.65}
-            end={0.88}
+            start={0.52}
+            end={0.82}
           >
-            BOXING ENTERTAINMENT LEAGUE • SEASON 1 | 01
+            Season 1 · Tamil Nadu — 600+ Boxers, 6 City Teams, Olympic Training Academies &amp; Structured Athlete Placements.
           </ScrollTypeText>
+
+          {/* Horizontal Highlight Box */}
+          <div
+            className="about-g border border-[#C5A15A]/35 border-l-4 border-l-[#C5A15A] bg-gradient-to-r from-[#191816]/90 via-[#1f1d18]/80 to-[#141210]/90 px-4 py-3 sm:py-3.5 shadow-[0_4px_20px_rgba(0,0,0,0.45)]"
+            style={{ '--gm': '1.2rem', '--gd': '1.5vw' } as React.CSSProperties}
+          >
+            <ScrollTypeText
+              as="p"
+              className="font-heading font-bold text-sm sm:text-base text-[#F2E9D7] tracking-wide leading-snug m-0"
+              start={0.58}
+              end={0.88}
+            >
+              Build the next generation of Indian boxing with BEL.
+            </ScrollTypeText>
+          </div>
         </div>
       </div>
 
@@ -274,80 +261,230 @@ export default function About() {
       <aside id="founder" className="about-panel">
         <div
           className="about-lab about-f"
-          style={{ '--m': '.75rem', '--d': '1vw' } as React.CSSProperties}
+          style={{ '--m': '.68rem', '--d': '.95vw' } as React.CSSProperties}
         >
           <ScrollTypeText as="span" start={0.12} end={0.30}>
-            FOUNDER NOTE
+            Founder &amp; Legal Head
           </ScrollTypeText>
           <i />
         </div>
 
         <ScrollTypeText
           as="h3"
-          className="about-name about-f about-g mt-1"
+          className="about-name about-f about-g"
           style={
             {
-              '--m': 'clamp(1.75rem, 6.5vw, 2.35rem)',
-              '--d': '2.8vw',
-              '--gm': '.6rem',
-              '--gd': '1.1vw',
+              '--m': 'clamp(1.6rem, 7vw, 2.1rem)',
+              '--d': '3.1vw',
+              '--gm': '.75rem',
+              '--gd': '1.4vw',
             } as React.CSSProperties
           }
-          start={0.20}
-          end={0.46}
+          start={0.22}
+          end={0.50}
         >
-          DR BALAJI SRINIVASAN
+          Dr. Balaji Srinivasan
         </ScrollTypeText>
 
-        <div className="font-heading text-xs sm:text-sm text-[#C5A15A] tracking-[0.18em] uppercase font-bold mt-1">
-          FOUNDER &amp; LEGAL HEAD · BEL
-        </div>
-
-        <div className="font-heading text-[11px] sm:text-xs text-[#A7A095] tracking-wider uppercase mt-0.5">
-          MA, LLB, B.Tech, BSc, Ph D (H.C.)
-        </div>
-
-        <p className="mt-2 font-body text-[11px] sm:text-xs text-[#DDD9D1] leading-relaxed">
-          Professional boxing athlete, sports league architect, and practicing advocate combining combat sports excellence with active legal governance to build India's premier professional boxing platform.
-        </p>
+        <ScrollTypeText
+          as="p"
+          className="about-quals about-f about-g"
+          style={
+            {
+              '--m': '.75rem',
+              '--d': '1.1vw',
+              '--gm': '.6rem',
+              '--gd': '1.1vw',
+              marginBottom: 0,
+            } as React.CSSProperties
+          }
+          start={0.38}
+          end={0.64}
+        >
+          MA · LLB · B.Tech · BSc · PhD (H.C.)
+        </ScrollTypeText>
 
         <div
-          className="about-hr about-g my-2"
-          style={{ '--gm': '.5rem', '--gd': '0.8vw' } as React.CSSProperties}
+          className="about-hr about-g"
+          style={{ '--gm': '1rem', '--gd': '1.7vw' } as React.CSSProperties}
         />
 
-        {/* State Championships: 2007 Gold, 2008 Gold, 3 Silvers */}
-        <div>
-          <span className="font-heading text-[10px] sm:text-xs font-bold tracking-[0.22em] text-[#C5A15A] uppercase block mb-2">
-            STATE CHAMPIONSHIPS
-          </span>
+        <div
+          className="about-stats about-g"
+          style={{ '--gm': '1rem', '--gd': '1.6vw' } as React.CSSProperties}
+        >
+          <div>
+            <ScrollTypeText
+              as="div"
+              className="about-big about-f"
+              style={{ '--m': '2.4rem', '--d': '5vw' } as React.CSSProperties}
+              start={0.42}
+              end={0.56}
+            >
+              10+
+            </ScrollTypeText>
+            <ScrollTypeText
+              as="div"
+              className="about-cap about-f about-g"
+              style={
+                {
+                  '--m': '.72rem',
+                  '--d': '.95vw',
+                  '--gm': '.5rem',
+                  '--gd': '.8vw',
+                } as React.CSSProperties
+              }
+              start={0.48}
+              end={0.72}
+            >
+              Years in combat sports
+            </ScrollTypeText>
+          </div>
 
-          <div className="grid grid-cols-3 gap-2">
-            <div className="p-2 sm:p-2.5 bg-[#191816]/95 border border-[#C5A15A]/50 flex flex-col gap-0.5 shadow-sm">
-              <span className="font-display text-xl sm:text-2xl text-[#C5A15A] font-bold leading-none">2007</span>
-              <span className="font-heading text-[10px] sm:text-xs text-[#F2E9D7] font-bold uppercase leading-tight">GOLD MEDAL</span>
-              <span className="font-body text-[9px] sm:text-[10px] text-[#A7A095] leading-snug">RDS State Championship, Nagercoil</span>
-            </div>
-
-            <div className="p-2 sm:p-2.5 bg-[#191816]/95 border border-[#C5A15A]/50 flex flex-col gap-0.5 shadow-sm">
-              <span className="font-display text-xl sm:text-2xl text-[#C5A15A] font-bold leading-none">2008</span>
-              <span className="font-heading text-[10px] sm:text-xs text-[#F2E9D7] font-bold uppercase leading-tight">GOLD MEDAL</span>
-              <span className="font-body text-[9px] sm:text-[10px] text-[#A7A095] leading-snug">Senior State Open, Thiruvottiyur</span>
-            </div>
-
-            <div className="p-2 sm:p-2.5 bg-[#191816]/95 border border-white/20 flex flex-col gap-0.5 shadow-sm">
-              <span className="font-display text-xl sm:text-2xl text-[#F2E9D7] font-bold leading-none">3×</span>
-              <span className="font-heading text-[10px] sm:text-xs text-[#F2E9D7] font-bold uppercase leading-tight">SILVER MEDALS</span>
-              <span className="font-body text-[9px] sm:text-[10px] text-[#A7A095] leading-snug">State Open Championships</span>
-            </div>
+          <div>
+            <ScrollTypeText
+              as="div"
+              className="about-big about-f"
+              style={{ '--m': '2.4rem', '--d': '5vw' } as React.CSSProperties}
+              start={0.46}
+              end={0.60}
+            >
+              3+
+            </ScrollTypeText>
+            <ScrollTypeText
+              as="div"
+              className="about-cap about-f about-g"
+              style={
+                {
+                  '--m': '.72rem',
+                  '--d': '.95vw',
+                  '--gm': '.5rem',
+                  '--gd': '.8vw',
+                } as React.CSSProperties
+              }
+              start={0.52}
+              end={0.76}
+            >
+              Years in active legal practice
+            </ScrollTypeText>
           </div>
         </div>
 
-        {/* Core Tag Cloud */}
-        <div className="mt-2.5 pt-2.5 border-t border-white/10 flex flex-wrap gap-1.5 font-heading text-[9px] sm:text-[9.5px] tracking-wider uppercase text-[#C5A15A]">
-          <span className="px-2 py-0.5 bg-[#191816] border border-[#C5A15A]/30">MORE THAN A LEAGUE.</span>
-          <span className="px-2 py-0.5 bg-[#191816] border border-[#C5A15A]/30">BIGGER STRONGER TOGETHER</span>
-          <span className="px-2 py-0.5 bg-[#191816] border border-[#C5A15A]/30">TAMIL NADU: ONE RING. SIX CITIES.</span>
+        <div
+          className="about-hr about-g"
+          style={{ '--gm': '1rem', '--gd': '1.7vw' } as React.CSSProperties}
+        />
+
+        <div
+          className="about-lab about-f about-g"
+          style={
+            {
+              '--m': '.68rem',
+              '--d': '.95vw',
+              '--gm': '1rem',
+              '--gd': '1.6vw',
+            } as React.CSSProperties
+          }
+        >
+          <ScrollTypeText as="span" start={0.56} end={0.68}>
+            Honors
+          </ScrollTypeText>
+          <i />
+        </div>
+
+        <div
+          className="about-hon about-g"
+          style={{ '--gm': '.8rem', '--gd': '1.3vw' } as React.CSSProperties}
+        >
+          <div>
+            <ScrollTypeText
+              as="div"
+              className="about-yr about-f"
+              style={{ '--m': '1.1rem', '--d': '1.4vw' } as React.CSSProperties}
+              start={0.60}
+              end={0.72}
+            >
+              🥇 2007
+            </ScrollTypeText>
+            <ScrollTypeText
+              as="div"
+              className="about-hl about-f about-g"
+              style={
+                {
+                  '--m': '.66rem',
+                  '--d': '.82vw',
+                  '--gm': '.4rem',
+                  '--gd': '.55vw',
+                } as React.CSSProperties
+              }
+              start={0.64}
+              end={0.80}
+            >
+              RDS State School Championship – Gold Medal, Nagercoil
+            </ScrollTypeText>
+          </div>
+
+          <div>
+            <ScrollTypeText
+              as="div"
+              className="about-yr about-f"
+              style={{ '--m': '1.1rem', '--d': '1.4vw' } as React.CSSProperties}
+              start={0.68}
+              end={0.78}
+            >
+              🥇 2008
+            </ScrollTypeText>
+            <ScrollTypeText
+              as="div"
+              className="about-hl about-f about-g"
+              style={
+                {
+                  '--m': '.66rem',
+                  '--d': '.82vw',
+                  '--gm': '.4rem',
+                  '--gd': '.55vw',
+                } as React.CSSProperties
+              }
+              start={0.72}
+              end={0.86}
+            >
+              Senior State Open Tournament – Gold Medal, Thiruvottiyur
+            </ScrollTypeText>
+          </div>
+
+          <div>
+            <ScrollTypeText
+              as="div"
+              className="about-hl about-f"
+              style={
+                {
+                  '--m': '.68rem',
+                  '--d': '.82vw',
+                  color: 'var(--ivory)',
+                } as React.CSSProperties
+              }
+              start={0.76}
+              end={0.90}
+            >
+              Tamil Nadu State Championships
+            </ScrollTypeText>
+            <ScrollTypeText
+              as="div"
+              className="about-yr about-f about-g"
+              style={
+                {
+                  '--m': '.95rem',
+                  '--d': '1.2vw',
+                  '--gm': '.35rem',
+                  '--gd': '.5vw',
+                } as React.CSSProperties
+              }
+              start={0.82}
+              end={0.96}
+            >
+              🥈 3 Silver Medals
+            </ScrollTypeText>
+          </div>
         </div>
       </aside>
       </div>
@@ -377,7 +514,7 @@ export default function About() {
               start={0.70}
               end={0.86}
             >
-              Competitive integrity, athlete protection &amp; structured governance
+              Integrity & athlete protection
             </ScrollTypeText>
           </div>
         </div>
@@ -407,7 +544,7 @@ export default function About() {
               start={0.73}
               end={0.89}
             >
-              Live-event experience built around city identity, fighters &amp; fans
+              Live city event production
             </ScrollTypeText>
           </div>
         </div>
@@ -434,7 +571,7 @@ export default function About() {
               start={0.76}
               end={0.92}
             >
-              Content-led visibility across broadcast, digital &amp; regional media
+              Broadcast & digital reach
             </ScrollTypeText>
           </div>
         </div>
@@ -463,7 +600,7 @@ export default function About() {
               start={0.79}
               end={0.95}
             >
-              An emerging sports property with a long-term pro boxing vision
+              A next-generation Indian boxing vision
             </ScrollTypeText>
           </div>
         </div>

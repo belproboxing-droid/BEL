@@ -18,7 +18,7 @@ const cities = [
   { city: 'KANYAKUMARI', franchise: 'KNIGHTS', date: 'FEB 27', logo: kumariLogo, team: 'Kumari Knights' },
 ]
 
-// Condensed 4-row calendar
+// Season 1 official calendar
 const calendar = [
   {
     id: 'launch',
@@ -29,10 +29,18 @@ const calendar = [
     gold: false,
   },
   {
+    id: 'new-year',
+    date: 'DEC 31, 2026',
+    event: 'New Year Party',
+    place: 'Beach House ECR, Chennai',
+    tag: 'PARTY',
+    gold: false,
+  },
+  {
     id: 'camp',
     date: 'JAN 02 – 16, 2027',
-    event: 'Training Camp & Academy Setup',
-    place: 'YMCA, Chennai',
+    event: 'Training Camp',
+    place: 'BEL Academy, Chennai',
     tag: 'TRAINING',
     gold: false,
   },
@@ -265,21 +273,7 @@ export default function UpcomingEvents() {
               </div>
             </div>
 
-            {/* Grand Finale CTA banner */}
-            <a
-              href="#/tickets?id=finale"
-              className="flex items-center justify-between gap-3 p-3 sm:p-3.5 border border-[#C5A15A]/55 bg-gradient-to-r from-[#191816] via-[#241F17] to-[#191816] hover:border-[#C5A15A] transition-all group"
-            >
-              <div>
-                <span className="font-heading text-[9px] font-bold tracking-[0.2em] text-[#C5A15A] uppercase block">
-                  SEASON 1 CLIMAX · MARCH 06, 2027
-                </span>
-                <span className="font-display text-sm sm:text-base text-[#F2E9D7] uppercase tracking-wide group-hover:text-[#C5A15A] transition-colors">
-                  GRAND FINALE · NEHRU INDOOR STADIUM, CHENNAI
-                </span>
-              </div>
-              <span className="text-[#C5A15A] font-bold text-lg group-hover:translate-x-1 transition-transform shrink-0">→</span>
-            </a>
+
 
           </div>
         </div>
