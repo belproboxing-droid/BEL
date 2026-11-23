@@ -62,7 +62,7 @@ export default function App() {
 
     if (transitionRef.current) {
       transitionRef.current
-        .play('FIGHT NIGHT', () => {
+        .play('BOXING LEAGUE', () => {
           window.location.hash = '#top'
           setRoute('home')
           window.scrollTo(0, 0)

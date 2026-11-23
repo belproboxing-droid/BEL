@@ -26,8 +26,9 @@ export default function PunchAnimation({ containerRef }: PunchAnimationProps) {
 
     if (!root || !shakeWrapper || !leftArm || !rightArm) return
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      gsap.set([leftArm, rightArm], { xPercent: 0, rotation: 0, scale: 1, filter: 'none' })
+    const isMobile = window.innerWidth < 1024
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || isMobile) {
+      gsap.set([leftArm, rightArm], { xPercent: 0, rotation: 0, scale: 1, opacity: 0.85 })
       return
     }
 

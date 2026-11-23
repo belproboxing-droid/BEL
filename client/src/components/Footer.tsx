@@ -1,4 +1,4 @@
-import rrMonogram from '../assets/images/rr-monogram-clean.png'
+import belLogo from '../assets/images/bel-logo.webp'
 
 const links = [
   { label: 'ABOUT', href: '#about' },
@@ -18,16 +18,21 @@ export default function Footer() {
       <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-16">
         {/* Main Bar matching Template */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/5">
-          {/* Left: BEL Monogram + Wordmark */}
-          <a href="#top" className="flex items-center gap-3">
+          {/* Left: BEL Official Emblem + Wordmark */}
+          <a href="#top" className="flex items-center gap-3 group">
             <img
-              src={rrMonogram}
-              alt="BEL Logo"
-              className="h-7 w-auto object-contain"
+              src={belLogo}
+              alt="BEL Official Emblem"
+              className="h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_2px_12px_rgba(197,161,90,0.35)]"
             />
-            <span className="font-heading text-lg font-bold tracking-[0.14em] text-[#F2E9D7]">
-              BEL
-            </span>
+            <div className="flex flex-col">
+              <span className="font-heading text-lg font-bold tracking-[0.14em] text-[#F2E9D7] leading-none">
+                BEL
+              </span>
+              <span className="font-heading text-[8px] tracking-[0.2em] text-[#C5A15A] uppercase mt-0.5">
+                BOXING ENTERTAINMENT LEAGUE
+              </span>
+            </div>
           </a>
 
           {/* Center: Clean Nav Links matching template */}

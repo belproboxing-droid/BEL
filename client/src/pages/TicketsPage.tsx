@@ -4,7 +4,7 @@ import partyBg from '../assets/images/new-year-party.jpg'
 import trainingBg from '../assets/images/training-sparring.png'
 import ticketsBg from '../assets/images/tickets-arena-bg.jpg'
 import finaleFightBg from '../assets/images/finale-fight.png'
-import rrMonogram from '../assets/images/rr-monogram-clean.png'
+import belLogo from '../assets/images/bel-logo.webp'
 
 // Franchise Logos for 6 Selection Tour Subtickets
 import chennaiLogo from '../assets/images/ChennaiCaptains.PNG'
@@ -59,7 +59,7 @@ export interface TicketData {
   parentEventId?: string
 }
 
-// ─── 6 Subtickets under Selection Tour (in exact order: Chennai, Madurai, Trichy, Salem, Kanyakumari, Coimbatore) ───
+// ─── 6 Subtickets under Selection Tour (in exact chronological order: Chennai, Coimbatore, Madurai, Trichy, Salem, Kanyakumari) ───
 export const SELECTION_SUBTICKETS: TicketData[] = [
   {
     id: 'selection-chennai',
@@ -80,16 +80,50 @@ export const SELECTION_SUBTICKETS: TicketData[] = [
     dateLabel: 'DATE',
     date: '23 JAN 2027',
     timeLabel: 'TIME',
-    time: '10 AM - 6 PM',
+    time: '',
     venueLabel: 'VENUE',
-    venue: 'YMCA CHENNAI',
+    venue: 'YMCA, CHENNAI',
     perfLabel: 'SCOUTS & BOUT CARD',
-    performers: ['CHENNAI CAPTAINS SCOUTS', 'LIVE ELIMINATION BOUTS', 'DJ KISHY'],
+    performers: ['CHENNAI CAPTAINS SCOUTS', 'LIVE ELIMINATION BOUTS', 'DJ & LIVE MUSIC'],
     footer: 'OFFICIAL SELECTION PASS · VALID FOR CHENNAI SELECTION TRIALS ONLY',
     stubTop: 'BEL · CHENNAI',
     stubLogo: 'BEL',
     stubBottom: 'BOXING ENTERTAINMENT LEAGUE',
     image: chennaiBg,
+    color: '#C8B78B',
+    inkColor: '#1F2A30',
+    parentEventId: 'selection',
+    isSubticket: true,
+  },
+  {
+    id: 'selection-coimbatore',
+    name: 'Coimbatore Selection Tour',
+    city: 'Coimbatore',
+    franchiseName: 'Kovai Kings',
+    franchiseLogo: kovaiLogo,
+    originalPrice: '₹999',
+    discountPrice: '₹499',
+    badgeLabel: 'SPECIAL OFFER',
+    description: 'Official Selection Trials pass for Kovai Kings franchise scouting bouts.',
+    brand: 'BEL',
+    brandSub: 'BOXING ENTERTAINMENT LEAGUE',
+    badge: 'COIMBATORE',
+    eyebrow: 'CITY FRANCHISE SELECTION TRIALS · COIMBATORE',
+    title: 'SELECTION TOUR',
+    subtitle: 'Kovai Kings scouting & pro pugilist elimination trials',
+    dateLabel: 'DATE',
+    date: '30 JAN 2027',
+    timeLabel: 'TIME',
+    time: '',
+    venueLabel: 'VENUE',
+    venue: 'YMCA, COIMBATORE',
+    perfLabel: 'SCOUTS & BOUT CARD',
+    performers: ['KOVAI KINGS SCOUTS', 'LIVE ELIMINATION BOUTS', 'DJ & LIVE MUSIC'],
+    footer: 'OFFICIAL SELECTION PASS · VALID FOR COIMBATORE SELECTION TRIALS ONLY',
+    stubTop: 'BEL · KOVAI',
+    stubLogo: 'BEL',
+    stubBottom: 'BOXING ENTERTAINMENT LEAGUE',
+    image: coimbatoreBg,
     color: '#C8B78B',
     inkColor: '#1F2A30',
     parentEventId: 'selection',
@@ -114,11 +148,11 @@ export const SELECTION_SUBTICKETS: TicketData[] = [
     dateLabel: 'DATE',
     date: '06 FEB 2027',
     timeLabel: 'TIME',
-    time: '10 AM - 6 PM',
+    time: '',
     venueLabel: 'VENUE',
-    venue: 'RACE COURSE INDOOR ARENA, MADURAI',
+    venue: 'ANNA STADIUM, MADURAI',
     perfLabel: 'SCOUTS & BOUT CARD',
-    performers: ['MADURAI MAVERICKS SCOUTS', 'LIVE ELIMINATION BOUTS', 'DJ KISHY'],
+    performers: ['MADURAI MAVERICKS SCOUTS', 'LIVE ELIMINATION BOUTS', 'DJ & LIVE MUSIC'],
     footer: 'OFFICIAL SELECTION PASS · VALID FOR MADURAI SELECTION TRIALS ONLY',
     stubTop: 'BEL · MADURAI',
     stubLogo: 'BEL',
@@ -148,11 +182,11 @@ export const SELECTION_SUBTICKETS: TicketData[] = [
     dateLabel: 'DATE',
     date: '13 FEB 2027',
     timeLabel: 'TIME',
-    time: '10 AM - 6 PM',
+    time: '',
     venueLabel: 'VENUE',
-    venue: 'ANNA STADIUM INDOOR ARENA, TRICHY',
+    venue: 'YMCA, TRICHY',
     perfLabel: 'SCOUTS & BOUT CARD',
-    performers: ['TRICHY TITANS SCOUTS', 'LIVE ELIMINATION BOUTS', 'DJ KISHY'],
+    performers: ['TRICHY TITANS SCOUTS', 'LIVE ELIMINATION BOUTS', 'DJ & LIVE MUSIC'],
     footer: 'OFFICIAL SELECTION PASS · VALID FOR TRICHY SELECTION TRIALS ONLY',
     stubTop: 'BEL · TRICHY',
     stubLogo: 'BEL',
@@ -182,11 +216,11 @@ export const SELECTION_SUBTICKETS: TicketData[] = [
     dateLabel: 'DATE',
     date: '20 FEB 2027',
     timeLabel: 'TIME',
-    time: '10 AM - 6 PM',
+    time: '',
     venueLabel: 'VENUE',
     venue: 'MAHATMA GANDHI STADIUM, SALEM',
     perfLabel: 'SCOUTS & BOUT CARD',
-    performers: ['SALEM SOLDIERS SCOUTS', 'LIVE ELIMINATION BOUTS', 'DJ KISHY'],
+    performers: ['SALEM SOLDIERS SCOUTS', 'LIVE ELIMINATION BOUTS', 'DJ & LIVE MUSIC'],
     footer: 'OFFICIAL SELECTION PASS · VALID FOR SALEM SELECTION TRIALS ONLY',
     stubTop: 'BEL · SALEM',
     stubLogo: 'BEL',
@@ -216,50 +250,16 @@ export const SELECTION_SUBTICKETS: TicketData[] = [
     dateLabel: 'DATE',
     date: '27 FEB 2027',
     timeLabel: 'TIME',
-    time: '10 AM - 6 PM',
+    time: '',
     venueLabel: 'VENUE',
-    venue: 'CAPE SPORTS COMPLEX, KANYAKUMARI',
+    venue: 'ANNA STADIUM, NAGERCOIL, KANYAKUMARI',
     perfLabel: 'SCOUTS & BOUT CARD',
-    performers: ['KUMARI KNIGHTS SCOUTS', 'LIVE ELIMINATION BOUTS', 'DJ KISHY'],
+    performers: ['KUMARI KNIGHTS SCOUTS', 'LIVE ELIMINATION BOUTS', 'DJ & LIVE MUSIC'],
     footer: 'OFFICIAL SELECTION PASS · VALID FOR KANYAKUMARI SELECTION TRIALS ONLY',
     stubTop: 'BEL · KUMARI',
     stubLogo: 'BEL',
     stubBottom: 'BOXING ENTERTAINMENT LEAGUE',
     image: kanyakumariBg,
-    color: '#C8B78B',
-    inkColor: '#1F2A30',
-    parentEventId: 'selection',
-    isSubticket: true,
-  },
-  {
-    id: 'selection-coimbatore',
-    name: 'Coimbatore Selection Tour',
-    city: 'Coimbatore',
-    franchiseName: 'Kovai Kings',
-    franchiseLogo: kovaiLogo,
-    originalPrice: '₹999',
-    discountPrice: '₹499',
-    badgeLabel: 'SPECIAL OFFER',
-    description: 'Official Selection Trials pass for Kovai Kings franchise scouting bouts.',
-    brand: 'BEL',
-    brandSub: 'BOXING ENTERTAINMENT LEAGUE',
-    badge: 'COIMBATORE',
-    eyebrow: 'CITY FRANCHISE SELECTION TRIALS · COIMBATORE',
-    title: 'SELECTION TOUR',
-    subtitle: 'Kovai Kings scouting & pro pugilist elimination trials',
-    dateLabel: 'DATE',
-    date: '30 JAN 2027',
-    timeLabel: 'TIME',
-    time: '10 AM - 6 PM',
-    venueLabel: 'VENUE',
-    venue: 'VOC INDOOR STADIUM, COIMBATORE',
-    perfLabel: 'SCOUTS & BOUT CARD',
-    performers: ['KOVAI KINGS SCOUTS', 'LIVE ELIMINATION BOUTS', 'DJ KISHY'],
-    footer: 'OFFICIAL SELECTION PASS · VALID FOR COIMBATORE SELECTION TRIALS ONLY',
-    stubTop: 'BEL · KOVAI',
-    stubLogo: 'BEL',
-    stubBottom: 'BOXING ENTERTAINMENT LEAGUE',
-    image: coimbatoreBg,
     color: '#C8B78B',
     inkColor: '#1F2A30',
     parentEventId: 'selection',
@@ -272,26 +272,26 @@ export const MAIN_EVENTS: TicketData[] = [
   // 1. BEL Launch (1999 strike 999) - Antique Gold
   {
     id: 'launch',
-    name: '1. BEL Launch',
+    name: '1. BEL Inauguration',
     originalPrice: '₹1,999',
     discountPrice: '₹999',
     badgeLabel: 'EARLY BIRD OFFER',
-    description: 'Get your ticket to BEL Launch at an exclusive early bird price.',
+    description: 'Get your pass to the official BEL Inauguration at an exclusive early bird price.',
     brand: 'BEL',
     brandSub: 'BOXING ENTERTAINMENT LEAGUE',
     badge: 'SEASON 1',
     eyebrow: 'OFFICIAL EVENT PASS',
-    title: 'GRAND LAUNCH',
-    subtitle: 'The opening night of BEL Season 1',
+    title: 'INAUGURATION',
+    subtitle: 'Grand Inauguration of BEL Season 1',
     dateLabel: 'DATE',
     date: '26 DEC 2026',
     timeLabel: 'TIME',
-    time: '10 AM',
+    time: '',
     venueLabel: 'VENUE',
-    venue: 'YMCA CHENNAI',
-    perfLabel: 'LIVE PERFORMANCES',
-    performers: ['JATAYU & HARINI IYER', 'DJ KISHY', 'DJ ARJUN HORA', 'JYOTHI KRIPALANI'],
-    footer: 'BEL DEMO FIGHT & EXHIBITION BOUT · 2:00 PM',
+    venue: 'YMCA, CHENNAI',
+    perfLabel: 'EVENT HIGHLIGHTS',
+    performers: ['BEL DEMO FIGHT & BOUTS', 'LIVE DANCE SHOW', 'DJ & LIVE MUSIC'],
+    footer: 'BEL DEMO FIGHT & EXHIBITION BOUT · OFFICIAL INAUGURATION',
     stubTop: 'BEL · SEASON 1',
     stubLogo: 'BEL',
     stubBottom: 'BOXING ENTERTAINMENT LEAGUE',
@@ -300,10 +300,10 @@ export const MAIN_EVENTS: TicketData[] = [
     inkColor: '#1F2A30',
   },
 
-  // 2. BEL New Year (5999 strike 3999) - Sunset Amber Gold (#F4A64A)
+  // 2. BEL New Year Party (5999 strike 3999) - Sunset Amber Gold (#F4A64A)
   {
     id: 'new-year',
-    name: '2. BEL New Year',
+    name: '2. BEL New Year Party',
     originalPrice: '₹5,999',
     discountPrice: '₹3,999',
     priceSuffix: 'per person',
@@ -312,17 +312,17 @@ export const MAIN_EVENTS: TicketData[] = [
     brand: 'BEL',
     brandSub: 'BOXING ENTERTAINMENT LEAGUE',
     badge: 'SEASON 1',
-    eyebrow: 'NEW YEAR EVE GALA PASS',
-    title: 'NEW YEAR BASH',
-    subtitle: 'Celebrate New Year with pro bouts, live DJ sets, & unlimited food and drinks',
+    eyebrow: 'NEW YEAR GALA PASS',
+    title: 'NEW YEAR PARTY',
+    subtitle: 'Celebrate New Year with pro bouts, live DJ music, dance, & unlimited food and drinks',
     dateLabel: 'DATE',
     date: '31 DEC 2026',
     timeLabel: 'TIME',
-    time: '7 PM TILL LATE',
+    time: '',
     venueLabel: 'VENUE',
-    venue: 'ITC GRAND CHOLA, CHENNAI',
-    perfLabel: 'LIVE PERFORMANCES',
-    performers: ['DJ ARJUN HORA', 'CELEBRITY PERCUSSION', 'MIDNIGHT CHAMPAGNE TOAST'],
+    venue: 'BEACH HOUSE ECR, CHENNAI',
+    perfLabel: 'EVENT HIGHLIGHTS',
+    performers: ['LIVE PRO BOUTS', 'DJ & LIVE MUSIC', 'DANCE SHOW & CELEBRATION'],
     footer: 'ALL-INCLUSIVE PASS · UNLIMITED FOOD & DRINKS INCLUDED WITH TICKET',
     stubTop: 'BEL · SEASON 1',
     stubLogo: 'BEL',
@@ -347,13 +347,13 @@ export const MAIN_EVENTS: TicketData[] = [
     title: 'TRAINING CAMP',
     subtitle: 'Witness pro fighter training camps, pad work drills & strength demonstrations',
     dateLabel: 'DATE',
-    date: '10 JAN 2027',
+    date: '02–16 JAN 2027',
     timeLabel: 'TIME',
-    time: '8 AM - 4 PM',
+    time: '',
     venueLabel: 'VENUE',
-    venue: 'BEL ATHLETIC CENTER, CHENNAI',
+    venue: 'BEL ACADEMY, CHENNAI',
     perfLabel: 'TRAINING SESSIONS',
-    performers: ['PRO HEAD COACHES', 'FIGHTER WALK-IN DEMOS', 'OLYMPIC BOXING CLINIC'],
+    performers: ['PRO HEAD COACHES', 'FIGHTER WALK-IN DEMOS', 'PAD WORK & CLINICS'],
     footer: 'FULL-DAY ACCESS TO ALL ARENA DRILLS & TRAINING SHOWCASES',
     stubTop: 'BEL · SEASON 1',
     stubLogo: 'BEL',
@@ -380,11 +380,11 @@ export const MAIN_EVENTS: TicketData[] = [
     dateLabel: 'DATES',
     date: '23 JAN - 27 FEB 2027',
     timeLabel: 'TIME',
-    time: '10 AM - 6 PM',
+    time: '',
     venueLabel: 'VENUE',
-    venue: '6 TAMIL NADU METRO HUBS',
+    venue: '6 TAMIL NADU CITIES',
     perfLabel: 'FRANCHISES & SCOUTS',
-    performers: ['6 CITY FRANCHISE MANAGERS', 'LIVE ELIMINATION BOUTS', 'DJ KISHY'],
+    performers: ['6 CITY FRANCHISE SCOUTS', 'LIVE ELIMINATION BOUTS', 'DJ & LIVE MUSIC'],
     footer: 'SELECT ANY 1 CITY SUBTICKET (CHENNAI, MADURAI, TRICHY, SALEM, KANYAKUMARI, COIMBATORE)',
     stubTop: 'BEL · SEASON 1',
     stubLogo: 'BEL',
@@ -411,31 +411,69 @@ export const MAIN_EVENTS: TicketData[] = [
     dateLabel: 'DATE',
     date: '06 MAR 2027',
     timeLabel: 'TIME',
-    time: '6 PM ONWARDS',
+    time: '',
     venueLabel: 'VENUE',
-    venue: 'JN STADIUM, CHENNAI',
-    perfLabel: 'ARTISTS & DANCE CREW',
-    performers: ['ANDREA JEREMIAH & SIVAMANI', 'DJ GOWTHAM · MC PONVANI', 'SANDY MASTER & SAMEENA CREW'],
-    footer: 'NEHRU INDOOR STADIUM · 7,000+ CAPACITY CHAMPIONSHIP PASS',
+    venue: 'JAWAHARLAL NEHRU INDOOR STADIUM, CHENNAI',
+    perfLabel: 'CHAMPIONSHIP SHOW',
+    performers: ['CHAMPIONSHIP FINALS', 'LIVE MUSIC & DJ', 'DANCE SHOW & TROPHY CEREMONY'],
+    footer: 'JAWAHARLAL NEHRU INDOOR STADIUM · 7,000+ CAPACITY CHAMPIONSHIP PASS',
     stubTop: 'BEL · SEASON 1',
     stubLogo: 'BEL',
     stubBottom: 'BOXING ENTERTAINMENT LEAGUE',
     image: finaleFightBg,
-    color: '#0A0A0A',
-    inkColor: '#FFFFFF',
+    color: '#C5A15A',
+    inkColor: '#1F2A30',
   },
 ]
 
 // All tickets accessible in system
 export const ALL_TICKETS: TicketData[] = [...MAIN_EVENTS, ...SELECTION_SUBTICKETS]
 
+const EVENT_ALIASES: Record<string, string> = {
+  inauguration: 'launch',
+  'grand-launch': 'launch',
+  launch: 'launch',
+  'new-year': 'new-year',
+  'new-year-party': 'new-year',
+  'new-year-bash': 'new-year',
+  camp: 'camp',
+  'training-camp': 'camp',
+  academy: 'camp',
+  selection: 'selection-chennai',
+  'selection-trials': 'selection-chennai',
+  'selection-tour': 'selection-chennai',
+  finale: 'finale',
+  'grand-finale': 'finale',
+  // Direct city aliases
+  chennai: 'selection-chennai',
+  coimbatore: 'selection-coimbatore',
+  kovai: 'selection-coimbatore',
+  madurai: 'selection-madurai',
+  trichy: 'selection-trichy',
+  salem: 'selection-salem',
+  kanyakumari: 'selection-kanyakumari',
+  kumari: 'selection-kanyakumari',
+  nagercoil: 'selection-kanyakumari',
+}
+
 function getInitialEventId(): string {
   try {
+    let id: string | null = null
     const hash = window.location.hash
     if (hash.includes('?')) {
       const q = new URLSearchParams(hash.split('?')[1])
-      const id = q.get('id') || q.get('event')
-      if (id && ALL_TICKETS.some((t) => t.id === id)) return id
+      id = q.get('id') || q.get('event')
+    }
+    if (!id && window.location.search) {
+      const q = new URLSearchParams(window.location.search)
+      id = q.get('id') || q.get('event')
+    }
+    if (id) {
+      const normalized = id.toLowerCase().trim()
+      if (EVENT_ALIASES[normalized]) return EVENT_ALIASES[normalized]
+      if (ALL_TICKETS.some((t) => t.id === normalized)) return normalized
+      const match = ALL_TICKETS.find((t) => t.id.toLowerCase() === normalized)
+      if (match) return match.id
     }
   } catch (e) {
     // ignore
@@ -542,30 +580,16 @@ export function BelTicket({
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-              <div
+              <img
+                src={belLogo}
+                alt="BEL Official Emblem"
                 style={{
                   width: 52,
-                  height: 48,
-                  background: ticketColor,
-                  color: ticketInk,
-                  border: isDark ? '1px solid rgba(255,255,255,0.3)' : undefined,
-                  transform: 'skewX(-8deg)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  transition: 'background 0.3s, color 0.3s',
+                  height: 52,
+                  objectFit: 'contain',
+                  filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.5))',
                 }}
-              >
-                <span
-                  style={{
-                    transform: 'skewX(8deg)',
-                    font: 'italic 900 22px Georgia, serif',
-                    letterSpacing: -1,
-                  }}
-                >
-                  BEL
-                </span>
-              </div>
+              />
               <div>
                 <div style={{ font: '700 19px Georgia, serif', letterSpacing: 3 }}>
                   {ticket.brand}
@@ -658,7 +682,7 @@ export function BelTicket({
             {ticket.subtitle}
           </div>
 
-          {/* Meta Grid (Date, Time, Venue) */}
+          {/* Meta Grid (Date, Venue - Time Removed) */}
           <div
             style={{
               display: 'flex',
@@ -671,16 +695,15 @@ export function BelTicket({
           >
             {[
               [ticket.dateLabel, ticket.date],
-              [ticket.timeLabel, ticket.time],
               [ticket.venueLabel, ticket.venue],
             ].map(([l, v], i) => (
               <div
                 key={i}
                 style={{
-                  paddingLeft: i === 0 ? 0 : 22,
+                  paddingLeft: i === 0 ? 0 : 28,
                   borderLeft: i === 0 ? 'none' : `1px solid ${ticketLine}`,
-                  paddingRight: i === 2 ? 0 : 40,
-                  marginRight: i === 2 ? 0 : 40,
+                  paddingRight: i === 1 ? 0 : 40,
+                  marginRight: i === 1 ? 0 : 40,
                 }}
               >
                 <div style={{ ...lab, color: isDark ? '#C5A15A' : ticketColor }}>{l}</div>
@@ -793,18 +816,18 @@ export function BelTicket({
           {ticket.stubTop}
         </div>
 
-        {/* Stub Circular Brand Seal or Franchise Crest */}
+        {/* Stub Brand Seal or Franchise Crest — no circle border */}
         <div
           style={{
-            width: 112,
-            height: 112,
-            border: `1px solid ${ticketInk}`,
-            borderRadius: '50%',
+            width: ticket.franchiseLogo ? 128 : 128,
+            height: ticket.franchiseLogo ? 128 : 128,
+            border: 'none',
+            borderRadius: 0,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: ticket.franchiseLogo ? 12 : 0,
-            background: ticket.franchiseLogo ? 'rgba(0,0,0,0.06)' : 'transparent',
+            padding: 0,
+            background: 'transparent',
           }}
         >
           {ticket.franchiseLogo ? (
@@ -815,22 +838,24 @@ export function BelTicket({
                 width: '100%',
                 height: '100%',
                 objectFit: 'contain',
-                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.35))',
+                filter: 'drop-shadow(0 4px 10px rgba(0,0,0,0.6))',
               }}
             />
           ) : (
-            <span
+            <img
+              src={belLogo}
+              alt="BEL Official Logo"
               style={{
-                font: '900 32px Georgia, serif',
-                letterSpacing: -2,
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+                filter: 'drop-shadow(0 2px 8px rgba(197,161,90,0.35))',
               }}
-            >
-              {ticket.stubLogo}
-            </span>
+            />
           )}
         </div>
 
-        {/* Stub Event Title, Time, & Venue */}
+        {/* Stub Event Title & Venue (Time Removed) */}
         <div
           style={{
             fontSize: 17,
@@ -846,12 +871,12 @@ export function BelTicket({
 
         <div
           style={{
-            fontSize: 11.5,
+            fontSize: 12,
             letterSpacing: 2,
             fontWeight: 700,
           }}
         >
-          {ticket.date} · {ticket.time}
+          {ticket.date}
         </div>
 
         <div style={{ width: 54, height: 1, background: ticketInk }} />
@@ -906,6 +931,7 @@ export default function TicketsPage({
       const id = getInitialEventId()
       setSelectedId(id)
     }
+    onHash()
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
@@ -936,6 +962,20 @@ export default function TicketsPage({
     }
   }
 
+  const handleSelectTicket = (id: string) => {
+    setSelectedId(id)
+    setBookingSuccess(false)
+    try {
+      window.history.replaceState(null, '', `#/tickets?id=${id}`)
+    } catch (e) {
+      // ignore
+    }
+  }
+
+  // Selected dropdown representations for mobile
+  const selectedMainEventValue = isSelectionTourActive ? 'selection' : selectedId
+  const selectedCityValue = selectedId.startsWith('selection-') ? selectedId : 'selection-chennai'
+
   // Helper to switch to next/previous city subticket
   const currentCityIndex = SELECTION_SUBTICKETS.findIndex(
     (c) => c.id === selectedTicket.id
@@ -943,16 +983,14 @@ export default function TicketsPage({
 
   const selectNextCity = () => {
     const nextIdx = (currentCityIndex + 1) % SELECTION_SUBTICKETS.length
-    setSelectedId(SELECTION_SUBTICKETS[nextIdx].id)
-    setBookingSuccess(false)
+    handleSelectTicket(SELECTION_SUBTICKETS[nextIdx].id)
   }
 
   const selectPrevCity = () => {
     const prevIdx =
       (currentCityIndex - 1 + SELECTION_SUBTICKETS.length) %
       SELECTION_SUBTICKETS.length
-    setSelectedId(SELECTION_SUBTICKETS[prevIdx].id)
-    setBookingSuccess(false)
+    handleSelectTicket(SELECTION_SUBTICKETS[prevIdx].id)
   }
 
   return (
@@ -965,9 +1003,9 @@ export default function TicketsPage({
             className="flex items-center gap-3 group cursor-pointer"
           >
             <img
-              src={rrMonogram}
+              src={belLogo}
               alt="BEL Logo"
-              className="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_2px_10px_rgba(197,161,90,0.4)]"
             />
             <span className="font-heading text-xl font-bold tracking-[0.14em] text-[#F2E9D7]">
               BEL
@@ -1016,8 +1054,91 @@ export default function TicketsPage({
           </div>
         </div>
 
-        {/* ─── 5 Main Event Ticket Selector Cards ─── */}
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+        {/* ─── Mobile View Ticket Selectors (Drop-down lists) ─── */}
+        <div className="mt-6 block sm:hidden space-y-3">
+          {/* Main Event Pass Dropdown */}
+          <div className="bg-[#141210] border border-[#C5A15A]/60 p-3.5 shadow-[0_4px_20px_rgba(0,0,0,0.6)]">
+            <div className="flex items-center justify-between mb-2">
+              <label htmlFor="mobile-ticket-select" className="font-heading text-[11px] font-bold tracking-[0.2em] text-[#C5A15A] uppercase flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C5A15A]" />
+                SELECT EVENT PASS
+              </label>
+              <span className="text-[9.5px] font-heading font-semibold text-[#A7A095] uppercase">
+                5 OFFICIAL PASSES
+              </span>
+            </div>
+
+            <div className="relative">
+              <select
+                id="mobile-ticket-select"
+                value={selectedMainEventValue}
+                onChange={(e) => {
+                  const val = e.target.value
+                  if (val === 'selection') {
+                    handleSelectTicket('selection-chennai')
+                  } else {
+                    handleSelectTicket(val)
+                  }
+                }}
+                className="w-full appearance-none bg-[#0B0B0A] border border-white/20 text-[#F2E9D7] font-heading text-xs font-bold uppercase tracking-wider py-3.5 pl-3.5 pr-10 focus:border-[#C5A15A] focus:outline-none transition-colors cursor-pointer"
+              >
+                {MAIN_EVENTS.map((m) => (
+                  <option key={m.id} value={m.id} className="bg-[#161513] text-[#F2E9D7] py-2">
+                    {m.name} · {m.discountPrice}
+                  </option>
+                ))}
+              </select>
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-[#C5A15A]">
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                  <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          {/* Selection Tour City Dropdown: only appears if user selects Selection Tour */}
+          {isSelectionTourActive && (
+            <div className="bg-[#161513] border border-[#C8B78B] p-3.5 shadow-[0_4px_20px_rgba(200,183,139,0.2)] animate-fadeIn">
+              <div className="flex items-center justify-between mb-2">
+                <label htmlFor="mobile-city-select" className="font-heading text-[11px] font-bold tracking-[0.2em] text-[#C8B78B] uppercase flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C8B78B] animate-pulse" />
+                  CHOOSE SELECTION TOUR PLACE
+                </label>
+                <span className="text-[9px] font-heading font-bold text-[#C8B78B] uppercase px-1.5 py-0.5 border border-[#C8B78B]/40 bg-[#C8B78B]/10">
+                  6 CITIES · ₹499
+                </span>
+              </div>
+
+              <div className="relative">
+                <select
+                  id="mobile-city-select"
+                  value={selectedCityValue}
+                  onChange={(e) => handleSelectTicket(e.target.value)}
+                  className="w-full appearance-none bg-[#0B0B0A] border border-[#C8B78B]/70 text-[#F2E9D7] font-heading text-xs font-bold uppercase tracking-wider py-3.5 pl-3.5 pr-10 focus:border-[#C8B78B] focus:outline-none transition-colors cursor-pointer"
+                >
+                  {SELECTION_SUBTICKETS.map((city) => (
+                    <option key={city.id} value={city.id} className="bg-[#161513] text-[#F2E9D7] py-2">
+                      {city.city} ({city.franchiseName}) · {city.date}
+                    </option>
+                  ))}
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-[#C8B78B]">
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                    <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                  </svg>
+                </div>
+              </div>
+
+              <div className="mt-2 flex items-center justify-between text-[10px] font-heading text-[#A7A095]">
+                <span className="truncate mr-2">Venue: <strong className="text-[#F2E9D7]">{selectedTicket.venue}</strong></span>
+                <span className="text-[#C8B78B] font-bold shrink-0">{selectedTicket.date}</span>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* ─── 5 Main Event Ticket Selector Cards (Desktop / Tablet View) ─── */}
+        <div className="hidden sm:grid mt-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
           {MAIN_EVENTS.map((t) => {
             const isSelected =
               t.id === selectedId ||
@@ -1030,11 +1151,10 @@ export default function TicketsPage({
                 onClick={() => {
                   if (t.id === 'selection') {
                     // Default to Chennai when Selection Tour is clicked
-                    setSelectedId('selection-chennai')
+                    handleSelectTicket('selection-chennai')
                   } else {
-                    setSelectedId(t.id)
+                    handleSelectTicket(t.id)
                   }
-                  setBookingSuccess(false)
                 }}
                 className={`text-left p-4 border transition-all duration-300 relative flex flex-col justify-between min-h-[148px] group cursor-pointer ${
                   isSelected
@@ -1105,9 +1225,9 @@ export default function TicketsPage({
           })}
         </div>
 
-        {/* ─── Selection Tour 6 City Subtickets Sub-Bar ─── */}
+        {/* ─── Selection Tour 6 City Subtickets Sub-Bar (Desktop / Tablet View) ─── */}
         {isSelectionTourActive && (
-          <div className="mt-6 border border-[#C8B78B]/40 bg-[#161513] p-4 sm:p-5 transition-all duration-300">
+          <div className="hidden sm:block mt-6 border border-[#C8B78B]/40 bg-[#161513] p-4 sm:p-5 transition-all duration-300">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-white/10">
               <div className="flex items-center gap-2.5">
                 <span className="w-2 h-2 rounded-full bg-[#C8B78B] animate-pulse" />
@@ -1129,17 +1249,14 @@ export default function TicketsPage({
               </div>
             </div>
 
-            {/* 6 City Cards Grid (Chennai, Madurai, Trichy, Salem, Kanyakumari, Coimbatore) */}
+            {/* 6 City Cards Grid (Chennai, Coimbatore, Madurai, Trichy, Salem, Kanyakumari) */}
             <div className="mt-3.5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-3">
               {SELECTION_SUBTICKETS.map((cityTicket) => {
                 const isCityActive = selectedTicket.id === cityTicket.id
                 return (
                   <button
                     key={cityTicket.id}
-                    onClick={() => {
-                      setSelectedId(cityTicket.id)
-                      setBookingSuccess(false)
-                    }}
+                    onClick={() => handleSelectTicket(cityTicket.id)}
                     className={`text-left p-3 border transition-all duration-300 relative flex flex-col justify-between group cursor-pointer ${
                       isCityActive
                         ? 'bg-[#22201D] border-[#C8B78B] shadow-[0_0_16px_rgba(200,183,139,0.35)]'
@@ -1151,7 +1268,7 @@ export default function TicketsPage({
                         <img
                           src={cityTicket.franchiseLogo}
                           alt={cityTicket.city}
-                          className="w-8 h-8 object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] transition-transform duration-300 group-hover:scale-110"
+                          className="w-12 h-12 sm:w-14 sm:h-14 object-contain filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] transition-transform duration-300 group-hover:scale-110"
                         />
                         {isCityActive && (
                           <span className="w-2 h-2 rounded-full bg-[#C8B78B] animate-pulse" />
@@ -1276,7 +1393,11 @@ export default function TicketsPage({
             style={{ borderColor: isDarkSelected ? '#FFFFFF' : ticketColor }}
           >
             <div className="flex items-center gap-3">
-              <span className="text-xl">🎟️</span>
+              <img
+                src={belLogo}
+                alt="BEL Official"
+                className="w-8 h-8 object-contain filter drop-shadow-[0_2px_8px_rgba(197,161,90,0.5)] shrink-0"
+              />
               <div>
                 <span
                   className="font-heading text-xs font-bold uppercase block"
@@ -1347,7 +1468,7 @@ export default function TicketsPage({
                     </span>
                     <button
                       onClick={() => {
-                        setSelectedId(cityTicket.id)
+                        handleSelectTicket(cityTicket.id)
                         setViewAllSubtickets(false)
                         setBookingSuccess(true)
                       }}

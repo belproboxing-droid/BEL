@@ -1,11 +1,12 @@
 import ticketsBg from '../assets/images/tickets-arena-bg.jpg'
+import belLogo from '../assets/images/bel-logo.webp'
 import { ScrollTypeSection, ScrollTypeText } from './ScrollTypeReveal'
 
 const stats = [
   { value: '10M+', label: 'DIGITAL REACH' },
   { value: '50+', label: 'MEDIA PARTNERS' },
   { value: '10K+', label: 'LIVE AUDIENCE' },
-  { value: '6', label: 'METRO HUBS' },
+  { value: '6', label: 'TEAM FRANCHISES' },
 ]
 
 export default function Sponsorship() {
@@ -41,14 +42,21 @@ export default function Sponsorship() {
             {/* Left Column: Headline & Intro */}
             <div className="lg:col-span-5 flex flex-col justify-center">
               <div>
-                <ScrollTypeText
-                  as="span"
-                  className="font-heading text-[10px] sm:text-xs font-semibold tracking-[0.28em] text-[#C5A15A] uppercase block"
-                  start={0.04}
-                  end={0.24}
-                >
-                  SPONSORSHIP
-                </ScrollTypeText>
+                <div className="flex items-center gap-2 mb-1">
+                  <img
+                    src={belLogo}
+                    alt="BEL"
+                    className="w-4 h-4 object-contain filter drop-shadow-[0_1px_4px_rgba(197,161,90,0.5)]"
+                  />
+                  <ScrollTypeText
+                    as="span"
+                    className="font-heading text-[10px] sm:text-xs font-semibold tracking-[0.28em] text-[#C5A15A] uppercase block"
+                    start={0.04}
+                    end={0.24}
+                  >
+                    SPONSORSHIP
+                  </ScrollTypeText>
+                </div>
 
                 <h2 className="mt-2 font-display text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.5rem] leading-[1.05] tracking-[0.01em] text-[#F2E9D7] uppercase">
                   <ScrollTypeText as="span" start={0.16} end={0.52}>
@@ -126,10 +134,10 @@ export default function Sponsorship() {
                 ))}
               </div>
 
-              {/* 3 Distinct Solid Metallic / Cream Luxury Tier Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 lg:gap-3.5">
+              {/* 4 Distinct Solid Metallic / Cream Luxury Sponsor Tier Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                 {/* Card 1: TITLE SPONSOR */}
-                <div className="p-3 sm:p-4 lg:p-4 bg-[#C5A15A] text-[#0B0B0A] shadow-[0_6px_18px_rgba(197,161,90,0.25)] flex flex-col justify-between hover:brightness-105 transition-all">
+                <div className="p-3 sm:p-3.5 bg-[#C5A15A] text-[#0B0B0A] shadow-[0_6px_18px_rgba(197,161,90,0.25)] flex flex-col justify-between hover:brightness-105 transition-all">
                   <div>
                     <h4 className="font-heading text-[11px] sm:text-xs font-bold tracking-[0.18em] uppercase">
                       TITLE SPONSOR
@@ -137,7 +145,7 @@ export default function Sponsorship() {
                     <p className="mt-0.5 font-heading text-[8.5px] sm:text-[9px] tracking-[0.14em] uppercase opacity-90 font-semibold">
                       2 EXCLUSIVE SLOTS · NAMING RIGHTS
                     </p>
-                    <ul className="mt-2.5 space-y-1 font-body text-[9.5px] sm:text-[10px] leading-tight text-[#0B0B0A]/90">
+                    <ul className="mt-2 space-y-1 font-body text-[9px] sm:text-[9.5px] leading-tight text-[#0B0B0A]/90">
                       <li className="flex items-start gap-1">
                         <span className="font-bold">•</span>
                         <span>Official League &amp; Broadcast Naming Title</span>
@@ -156,18 +164,18 @@ export default function Sponsorship() {
                       </li>
                     </ul>
                   </div>
-                  <div className="mt-2.5 pt-1.5 border-t border-[#0B0B0A]/20 flex items-center justify-between">
+                  <div className="mt-2 pt-1.5 border-t border-[#0B0B0A]/20 flex items-center justify-between">
                     <span className="font-heading text-[8px] sm:text-[8.5px] tracking-[0.18em] uppercase font-bold">
                       EXCLUSIVE ENTITLEMENT
                     </span>
                     <span className="font-heading text-[8px] sm:text-[8.5px] tracking-wider font-bold">
-                      2/2 SLOTS
+                      2 SLOTS
                     </span>
                   </div>
                 </div>
 
                 {/* Card 2: POWERED BY */}
-                <div className="p-3 sm:p-4 lg:p-4 bg-[#EAE2D2] text-[#0B0B0A] shadow-[0_6px_18px_rgba(0,0,0,0.35)] flex flex-col justify-between hover:brightness-105 transition-all">
+                <div className="p-3 sm:p-3.5 bg-[#EAE2D2] text-[#0B0B0A] shadow-[0_6px_18px_rgba(0,0,0,0.35)] flex flex-col justify-between hover:brightness-105 transition-all">
                   <div>
                     <h4 className="font-heading text-[11px] sm:text-xs font-bold tracking-[0.18em] uppercase">
                       POWERED BY
@@ -175,7 +183,7 @@ export default function Sponsorship() {
                     <p className="mt-0.5 font-heading text-[8.5px] sm:text-[9px] tracking-[0.14em] uppercase opacity-90 font-semibold">
                       4 ASSOCIATE SLOTS · STREAM RIGHTS
                     </p>
-                    <ul className="mt-2.5 space-y-1 font-body text-[9.5px] sm:text-[10px] leading-tight text-[#0B0B0A]/90">
+                    <ul className="mt-2 space-y-1 font-body text-[9px] sm:text-[9.5px] leading-tight text-[#0B0B0A]/90">
                       <li className="flex items-start gap-1">
                         <span className="font-bold">•</span>
                         <span>TV Broadcast &amp; OTT Streaming Co-Brand</span>
@@ -194,18 +202,56 @@ export default function Sponsorship() {
                       </li>
                     </ul>
                   </div>
-                  <div className="mt-2.5 pt-1.5 border-t border-[#0B0B0A]/20 flex items-center justify-between">
+                  <div className="mt-2 pt-1.5 border-t border-[#0B0B0A]/20 flex items-center justify-between">
                     <span className="font-heading text-[8px] sm:text-[8.5px] tracking-[0.18em] uppercase font-bold">
                       ASSOCIATE CO-BRAND
                     </span>
                     <span className="font-heading text-[8px] sm:text-[8.5px] tracking-wider font-bold">
-                      4/4 SLOTS
+                      4 SLOTS
                     </span>
                   </div>
                 </div>
 
-                {/* Card 3: ASSOCIATE PARTNERS */}
-                <div className="p-3 sm:p-4 lg:p-4 bg-[#D4B77D] text-[#0B0B0A] shadow-[0_6px_18px_rgba(0,0,0,0.35)] flex flex-col justify-between hover:brightness-105 transition-all">
+                {/* Card 3: 6 TEAM FRANCHISES */}
+                <div className="p-3 sm:p-3.5 bg-[#D4B77D] text-[#0B0B0A] shadow-[0_6px_18px_rgba(0,0,0,0.35)] flex flex-col justify-between hover:brightness-105 transition-all">
+                  <div>
+                    <h4 className="font-heading text-[11px] sm:text-xs font-bold tracking-[0.18em] uppercase">
+                      6 TEAM FRANCHISES
+                    </h4>
+                    <p className="mt-0.5 font-heading text-[8.5px] sm:text-[9px] tracking-[0.14em] uppercase opacity-90 font-semibold">
+                      6 FRANCHISE SLOTS · CITY OWNERSHIP
+                    </p>
+                    <ul className="mt-2 space-y-1 font-body text-[9px] sm:text-[9.5px] leading-tight text-[#0B0B0A]/90">
+                      <li className="flex items-start gap-1">
+                        <span className="font-bold">•</span>
+                        <span>Chennai Captains · Kovai Kings · Madurai Mavericks</span>
+                      </li>
+                      <li className="flex items-start gap-1">
+                        <span className="font-bold">•</span>
+                        <span>Trichy Titans · Salem Soldiers · Kumari Knights</span>
+                      </li>
+                      <li className="flex items-start gap-1">
+                        <span className="font-bold">•</span>
+                        <span>Exclusive Territorial Rights &amp; City Franchise Ownership</span>
+                      </li>
+                      <li className="flex items-start gap-1">
+                        <span className="font-bold">•</span>
+                        <span>Team Jersey Branding, Fighter Selection &amp; Local Revenue</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="mt-2 pt-1.5 border-t border-[#0B0B0A]/20 flex items-center justify-between">
+                    <span className="font-heading text-[8px] sm:text-[8.5px] tracking-[0.18em] uppercase font-bold">
+                      CITY FRANCHISES
+                    </span>
+                    <span className="font-heading text-[8px] sm:text-[8.5px] tracking-wider font-bold">
+                      6 SLOTS
+                    </span>
+                  </div>
+                </div>
+
+                {/* Card 4: ASSOCIATE PARTNERS */}
+                <div className="p-3 sm:p-3.5 bg-[#DDD5C7] text-[#0B0B0A] shadow-[0_6px_18px_rgba(0,0,0,0.35)] flex flex-col justify-between hover:brightness-105 transition-all">
                   <div>
                     <h4 className="font-heading text-[11px] sm:text-xs font-bold tracking-[0.18em] uppercase">
                       ASSOCIATE PARTNERS
@@ -213,7 +259,7 @@ export default function Sponsorship() {
                     <p className="mt-0.5 font-heading text-[8.5px] sm:text-[9px] tracking-[0.14em] uppercase opacity-90 font-semibold">
                       10 CATEGORY SLOTS · ARENA EXPOSURE
                     </p>
-                    <ul className="mt-2.5 space-y-1 font-body text-[9.5px] sm:text-[10px] leading-tight text-[#0B0B0A]/90">
+                    <ul className="mt-2 space-y-1 font-body text-[9px] sm:text-[9.5px] leading-tight text-[#0B0B0A]/90">
                       <li className="flex items-start gap-1">
                         <span className="font-bold">•</span>
                         <span>Exclusive Category / Sector Partner Status</span>
@@ -224,7 +270,7 @@ export default function Sponsorship() {
                       </li>
                       <li className="flex items-start gap-1">
                         <span className="font-bold">•</span>
-                        <span>Multi-Platform Campaigns (IG, WA, YT, FB, X)</span>
+                        <span>Multi-Platform Digital Campaigns (IG, WA, YT, FB, X)</span>
                       </li>
                       <li className="flex items-start gap-1">
                         <span className="font-bold">•</span>
@@ -232,7 +278,7 @@ export default function Sponsorship() {
                       </li>
                     </ul>
                   </div>
-                  <div className="mt-2.5 pt-1.5 border-t border-[#0B0B0A]/20 flex items-center justify-between">
+                  <div className="mt-2 pt-1.5 border-t border-[#0B0B0A]/20 flex items-center justify-between">
                     <span className="font-heading text-[8px] sm:text-[8.5px] tracking-[0.18em] uppercase font-bold">
                       CATEGORY PARTNERS
                     </span>
@@ -263,7 +309,7 @@ export default function Sponsorship() {
               </h3>
 
               <p className="mt-1 font-body text-xs sm:text-sm text-[#A7A095] tracking-wide font-light">
-                10 exclusive categories &amp; passes. Live fight nights. Unforgettable atmosphere.
+                10 exclusive categories &amp; passes. Live championship events. Unforgettable atmosphere.
               </p>
             </div>
 

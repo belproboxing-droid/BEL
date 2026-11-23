@@ -2,10 +2,10 @@ import type { EventCard } from '../types'
 
 export const upcomingEvents: EventCard[] = [
   {
-    id: 'fight-night',
-    title: 'FIGHT NIGHT',
+    id: 'boxing-league',
+    title: 'BOXING LEAGUE',
     status: 'DETAILS SOON',
-    details: 'Professional fight night series.',
+    details: "India's Professional Boxing League series.",
   },
   {
     id: 'amateur-series',

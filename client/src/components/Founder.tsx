@@ -1,3 +1,5 @@
+import belLogo from '../assets/images/bel-logo.webp'
+
 export default function Founder() {
   return (
     <section
@@ -14,28 +16,35 @@ export default function Founder() {
                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
               </svg>
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0A] via-transparent to-transparent" />
+              {/* Official League Seal on Portrait Frame */}
+              <div className="absolute top-2 right-2 p-1 bg-[#0B0B0A]/80 border border-[#C5A15A]/40 rounded-full shadow-md">
+                <img src={belLogo} alt="BEL Crest" className="w-5 h-5 object-contain" />
+              </div>
             </div>
 
             {/* Founder Bio Block */}
             <div className="flex-1">
-              <span className="font-heading text-xs font-semibold tracking-[0.3em] text-[#C5A15A] uppercase">
-                FOUNDER NOTE
-              </span>
+              <div className="flex items-center gap-2">
+                <img src={belLogo} alt="BEL" className="w-4 h-4 object-contain filter drop-shadow-[0_1px_4px_rgba(197,161,90,0.5)]" />
+                <span className="font-heading text-xs font-semibold tracking-[0.3em] text-[#C5A15A] uppercase">
+                  FOUNDER NOTE
+                </span>
+              </div>
 
               <h3 className="mt-1 font-heading text-xl sm:text-2xl font-bold text-[#F2E9D7] tracking-wide">
-                Dr. Balaji Srinivasan
+                DR BALAJI SRINIVASAN
               </h3>
 
               <p className="font-heading text-xs text-[#C5A15A] tracking-[0.2em] uppercase mt-0.5">
-                Founder & Legal Head
+                FOUNDER &amp; LEGAL HEAD · BEL
               </p>
 
               <p className="font-heading text-[10px] text-[#A7A095] tracking-[0.16em] uppercase mt-0.5">
-                MA, LLB, B.Tech, BSc, PhD (H.C.)
+                MA, LLB, B.Tech, BSc, Ph D (H.C.)
               </p>
 
-              <p className="mt-4 font-body text-xs sm:text-sm text-[#A7A095] italic leading-relaxed">
-                “A stronger boxing ecosystem for a bolder tomorrow.”
+              <p className="mt-4 font-body text-xs sm:text-sm text-[#A7A095] leading-relaxed">
+                Dr Balaji Srinivasan is a professional boxing athlete, sports league architect, and a practicing advocate with a multidisciplinary background that spans competitive sports, legal governance, human rights, and large-scale event management.
               </p>
 
               <div className="mt-3 w-12 h-[1px] bg-[#C5A15A]" />

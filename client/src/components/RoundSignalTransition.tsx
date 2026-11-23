@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react'
 import boardImg from '../assets/images/board.png'
+import belLogo from '../assets/images/bel-logo.webp'
 
 export interface RoundSignalTransitionHandle {
   play: (label: string, swap: () => void) => Promise<void>
@@ -351,6 +352,16 @@ const RoundSignalTransition = forwardRef<RoundSignalTransitionHandle>(
                 {/* BEL Header Tag */}
                 <div className="rst-tag">
                   <i />
+                  <img
+                    src={belLogo}
+                    alt="BEL Emblem"
+                    style={{
+                      height: '1.75em',
+                      width: 'auto',
+                      objectFit: 'contain',
+                      filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.8))',
+                    }}
+                  />
                   <span>BEL</span>
                   <i />
                 </div>
@@ -369,6 +380,16 @@ const RoundSignalTransition = forwardRef<RoundSignalTransitionHandle>(
                 {/* BEL Header Tag */}
                 <div className="rst-tag">
                   <i />
+                  <img
+                    src={belLogo}
+                    alt="BEL Emblem"
+                    style={{
+                      height: '1.75em',
+                      width: 'auto',
+                      objectFit: 'contain',
+                      filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.8))',
+                    }}
+                  />
                   <span>BEL</span>
                   <i />
                 </div>

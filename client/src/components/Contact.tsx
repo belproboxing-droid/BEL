@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { ScrollTypeSection, ScrollTypeText } from './ScrollTypeReveal'
+import belLogo from '../assets/images/bel-logo.webp'
 
 const categories = ['FRANCHISE', 'SPONSORSHIP', 'SCOUTING', 'MEDIA', 'VIP HOSPITALITY']
 
@@ -18,14 +19,17 @@ export default function Contact() {
           {/* Left Column: CONTACT / LET'S BUILD THE NEXT CHAPTER. + Contact nodes (5 cols) */}
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
-              <ScrollTypeText
-                as="span"
-                className="font-heading text-xs font-semibold tracking-[0.3em] text-[#C5A15A] uppercase"
-                start={0.04}
-                end={0.24}
-              >
-                CONTACT
-              </ScrollTypeText>
+              <div className="flex items-center gap-2 mb-1">
+                <img src={belLogo} alt="BEL" className="w-4 h-4 object-contain filter drop-shadow-[0_1px_4px_rgba(197,161,90,0.5)]" />
+                <ScrollTypeText
+                  as="span"
+                  className="font-heading text-xs font-semibold tracking-[0.3em] text-[#C5A15A] uppercase"
+                  start={0.04}
+                  end={0.24}
+                >
+                  CONTACT
+                </ScrollTypeText>
+              </div>
 
               <h2 className="mt-2 font-display text-4xl sm:text-5xl md:text-6xl leading-[0.9] tracking-[0.01em] text-[#F2E9D7] uppercase">
                 <span className="block">
@@ -98,13 +102,16 @@ export default function Contact() {
             </div>
 
             {/* League Mission & Governance Callout from Deck */}
-            <div className="mt-8 p-4 bg-[#161513]/90 border-l-2 border-[#C5A15A] border-t border-r border-b border-white/5">
-              <span className="font-heading text-[9px] font-semibold tracking-[0.24em] text-[#C5A15A] uppercase block">
-                ONE RING. SIX CITIES. A STRONGER TOMORROW.
-              </span>
-              <p className="mt-1 font-body text-[11px] sm:text-xs text-[#A7A095] leading-relaxed">
-                BEL is structured with professional governance, athlete insurance &amp; Olympic-pathway training. Direct queries for franchise acquisition, title sponsorship and athlete scouting are processed by our executive legal desk.
-              </p>
+            <div className="mt-8 p-4 bg-[#161513]/90 border-l-2 border-[#C5A15A] border-t border-r border-b border-white/5 flex items-start gap-3">
+              <img src={belLogo} alt="BEL Crest" className="w-8 h-8 object-contain mt-0.5 shrink-0 filter drop-shadow-[0_2px_8px_rgba(197,161,90,0.4)]" />
+              <div>
+                <span className="font-heading text-[9px] font-semibold tracking-[0.24em] text-[#C5A15A] uppercase block">
+                  ONE RING. SIX CITIES. A STRONGER TOMORROW.
+                </span>
+                <p className="mt-1 font-body text-[11px] sm:text-xs text-[#A7A095] leading-relaxed">
+                  BEL is structured with professional governance, athlete insurance &amp; structured championship-pathway training. Direct queries for franchise acquisition, title sponsorship and athlete scouting are processed by our executive legal desk.
+                </p>
+              </div>
             </div>
           </div>
 

@@ -1,5 +1,6 @@
 import ringHeroDesktop from '../assets/images/hero-ring-fight.webp'
 import ringHeroMobile from '../assets/images/hero-ring-fight-mobile.webp'
+import belLogo from '../assets/images/bel-logo.webp'
 
 export default function Hero() {
   return (
@@ -54,31 +55,38 @@ export default function Hero() {
       {/* Hero Content Area: Layered directly along the fighters (zero dead space on phone) */}
       <div className="relative z-10 w-full">
         <div className="mx-auto max-w-[1440px] px-5 sm:px-10 lg:px-16 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 sm:gap-10">
-          {/* Left Column: Stacked Tag, Giant FIGHT NIGHT, Subhead, 2 CTAs */}
+          {/* Left Column: Official Emblem, Stacked Tag, Giant BOXING LEAGUE, Subhead, 2 CTAs */}
           <div className="max-w-2xl">
-            {/* Stacked Organization Tag matching template */}
-            <div className="font-heading text-[10px] sm:text-[11px] font-semibold tracking-[0.32em] text-[#A7A095] uppercase leading-tight mb-2.5 sm:mb-4">
-              <span>BOXING</span>
-              <br />
-              <span>ENTERTAINMENT</span>
-              <br />
-              <span className="text-[#C5A15A]">LEAGUE</span>
+            {/* Official BEL League Tag with Crest */}
+            <div className="flex items-center gap-3.5 mb-3 sm:mb-4">
+              <img
+                src={belLogo}
+                alt="Boxing Entertainment League Emblem"
+                className="w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 object-contain filter drop-shadow-[0_4px_16px_rgba(197,161,90,0.5)] transition-transform duration-300 hover:scale-105"
+              />
+              <div className="font-heading text-[10px] sm:text-[11px] font-semibold tracking-[0.32em] text-[#A7A095] uppercase leading-tight">
+                <span>BOXING</span>
+                <br />
+                <span>ENTERTAINMENT</span>
+                <br />
+                <span className="text-[#C5A15A]">LEAGUE</span>
+              </div>
             </div>
 
-            {/* Giant Display Headline: FIGHT in Ivory, NIGHT in Antique Gold */}
+            {/* Giant Display Headline: BOXING in Ivory, LEAGUE in Antique Gold */}
             <h1 className="font-display leading-[0.85] tracking-[0.01em]">
               <span className="block text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8rem] text-[#F2E9D7] uppercase drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
-                FIGHT
+                BOXING
               </span>
               <span className="block text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8rem] text-[#C5A15A] uppercase drop-shadow-[0_4px_28px_rgba(197,161,90,0.35)]">
-                NIGHT
+                LEAGUE
               </span>
             </h1>
 
-            {/* Subhead matching template */}
+            {/* Subhead matching approved hook lines */}
             <div className="mt-3 sm:mt-4">
               <p className="font-heading text-xs sm:text-base md:text-lg text-[#F2E9D7] tracking-[0.2em] uppercase font-medium">
-                BUILT FOR THE BRAVE.
+                INDIA'S PROFESSIONAL BOXING LEAGUE
               </p>
               <p className="mt-1 font-body text-xs sm:text-sm text-[#A7A095] font-light">
                 If cricket has IPL, boxing deserves BEL.

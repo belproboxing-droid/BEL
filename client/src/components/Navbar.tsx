@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import rrMonogram from '../assets/images/rr-monogram-clean.png'
+import belLogo from '../assets/images/bel-logo.webp'
 
 const links = [
   { label: 'ABOUT', href: '#about' },
@@ -16,16 +16,21 @@ export default function Navbar() {
   return (
     <header className="absolute md:fixed inset-x-0 top-0 z-[100] w-full bg-gradient-to-b from-[#0B0B0A]/90 to-transparent transition-all">
       <nav className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-6 sm:px-10 lg:px-16">
-        {/* Left: BEL Monogram & Wordmark */}
+        {/* Left: BEL Official Emblem & Uniform Brand Lockup */}
         <a href="#top" className="flex items-center gap-3 group">
           <img
-            src={rrMonogram}
-            alt="BEL Logo"
-            className="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            src={belLogo}
+            alt="Boxing Entertainment League Official Logo"
+            className="h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_2px_10px_rgba(197,161,90,0.4)]"
           />
-          <span className="font-heading text-xl font-bold tracking-[0.14em] text-[#F2E9D7]">
-            BEL
-          </span>
+          <div className="flex items-center">
+            <span className="font-heading text-xl sm:text-2xl font-bold tracking-[0.14em] text-[#F2E9D7] leading-none">
+              BEL
+            </span>
+            <span className="ml-2.5 font-heading text-[10px] sm:text-xs tracking-[0.24em] text-[#C5A15A] uppercase border-l border-white/20 pl-2.5 hidden xs:inline">
+              BOXING LEAGUE
+            </span>
+          </div>
         </a>
 
         {/* Center: Navigation Links matching Template */}

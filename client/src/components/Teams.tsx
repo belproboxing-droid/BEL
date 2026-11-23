@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import bagImgSrc from '../assets/images/bag-red-transparent.webp'
+import belLogo from '../assets/images/bel-logo.webp'
 import chennaiLogo from '../assets/images/ChennaiCaptains.PNG'
 import kovaiLogo from '../assets/images/KovaiKings.PNG'
 import salemLogo from '../assets/images/SalemSoilders.PNG'
@@ -54,12 +55,12 @@ export default function Teams() {
   const [activeIdx, setActiveIdx] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
 
-  // Marquee auto-flow: shifts team spotlight continuously
+  // Marquee auto-flow: shifts team spotlight continuously at an energetic, brisk pace
   useEffect(() => {
     if (isPaused) return
     const timer = setInterval(() => {
       setActiveIdx((prev) => (prev + 1) % franchises.length)
-    }, 2400)
+    }, 1600)
     return () => clearInterval(timer)
   }, [isPaused])
 
@@ -223,7 +224,8 @@ export default function Teams() {
     let bagCenterX = 0
 
     function resize() {
-      dpr = Math.min(2, window.devicePixelRatio || 1)
+      const isMobile = window.innerWidth < 1024
+      dpr = isMobile ? 1 : Math.min(2, window.devicePixelRatio || 1)
       CW = Math.max(1, cv.clientWidth)
       CH = Math.max(1, cv.clientHeight)
       cv.width = Math.round(CW * dpr)
@@ -408,7 +410,12 @@ export default function Teams() {
               isRevealed ? 'opacity-100 translate-y-0' : 'opacity-90 translate-y-0'
             }`}
           >
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <img
+                src={belLogo}
+                alt="BEL"
+                className="w-4 h-4 object-contain filter drop-shadow-[0_1px_4px_rgba(140,107,55,0.4)]"
+              />
               <ScrollTypeText
                 as="span"
                 className="font-heading text-xs font-semibold tracking-[0.3em] text-[#8C6B37] uppercase"
@@ -454,7 +461,7 @@ export default function Teams() {
               start={0.70}
               end={0.96}
             >
-              EXCLUSIVE CITY RIGHTS • BEHINDWOODS MEDIA
+              EXCLUSIVE CITY RIGHTS • 6 TAMIL NADU CITIES
             </ScrollTypeText>
           </div>
 
@@ -629,7 +636,7 @@ export default function Teams() {
               </p>
             </div>
 
-            {/* Block 3: Behindwoods Broadcast Coverage */}
+            {/* Block 3: Media Broadcast Coverage */}
             <div className="group flex flex-col justify-between p-3.5 sm:p-4 bg-[#0B0B0A] text-[#F2E9D7] border border-[#191816] hover:border-[#C5A15A]/60 shadow-[0_4px_16px_rgba(0,0,0,0.2)] transition-all duration-300 hover:-translate-y-0.5">
               <div className="flex items-center gap-2.5">
                 <div className="p-2 bg-[#191816] text-[#C5A15A] border border-[#C5A15A]/30 shrink-0 group-hover:border-[#C5A15A] transition-colors">
@@ -639,7 +646,7 @@ export default function Teams() {
                   </svg>
                 </div>
                 <span className="font-heading text-[10px] sm:text-[11px] tracking-[0.14em] text-[#F2E9D7] uppercase font-bold leading-tight group-hover:text-[#C5A15A] transition-colors">
-                  BEHINDWOODS MEDIA REACH
+                  DIGITAL &amp; MEDIA REACH
                 </span>
               </div>
               <p className="mt-2 font-body text-[10.5px] sm:text-[11px] text-[#A7A095] leading-relaxed">
@@ -658,11 +665,11 @@ export default function Teams() {
                   </svg>
                 </div>
                 <span className="font-heading text-[10px] sm:text-[11px] tracking-[0.14em] text-[#F2E9D7] uppercase font-bold leading-tight group-hover:text-[#C5A15A] transition-colors">
-                  SEASON 2 METRO EXPANSION
+                  SEASON 2 CITY EXPANSION
                 </span>
               </div>
               <p className="mt-2 font-body text-[10.5px] sm:text-[11px] text-[#A7A095] leading-relaxed">
-                First right of renewal and priority participation as BEL expands to major South India metros.
+                First right of renewal and priority participation as BEL expands to major South India cities.
               </p>
             </div>
           </div>

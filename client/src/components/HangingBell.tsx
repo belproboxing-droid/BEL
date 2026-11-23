@@ -175,13 +175,13 @@ export default function HangingBell() {
     let CW = 0, CH = 0, S = 1, dpr = 1, vx0 = 0
 
     function resize() {
-      dpr = Math.min(1.5, window.devicePixelRatio || 1)
+      const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 1024
+      dpr = isDesktop ? Math.min(1.5, window.devicePixelRatio || 1) : 1
       CW = Math.max(1, stage.clientWidth)
       CH = Math.max(1, stage.clientHeight)
       cv.width = Math.round(CW * dpr)
       cv.height = Math.round(CH * dpr)
 
-      const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 1024
       if (isDesktop) {
         // Fits entire bell including clapper & bottom rim with comfortable breathing room
         const fitH = CH / 1500

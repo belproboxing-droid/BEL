@@ -1,13 +1,14 @@
 import ticketsBg from '../assets/images/tickets-arena-bg.jpg'
 import HangingBell from './HangingBell'
+import belLogo from '../assets/images/bel-logo.webp'
 import { ScrollTypeSection, ScrollTypeText } from './ScrollTypeReveal'
 
 const EVENT_PILLS = [
-  { name: 'GRAND LAUNCH', date: '26 DEC', venue: 'YMCA CHENNAI', price: '₹999' },
-  { name: 'NEW YEAR BASH', date: '31 DEC', venue: 'NYE ARENA', price: '₹3,999' },
-  { name: 'TRAINING CAMP', date: '02–16 JAN', venue: 'ACADEMY SETUP', price: '₹999' },
-  { name: 'SELECTION TRIALS', date: '23 JAN–27 FEB', venue: '6 CITIES', price: '₹499' },
-  { name: 'GRAND FINALE', date: '06 MAR', venue: 'NEHRU STADIUM', price: '₹999' },
+  { id: 'launch', name: 'INAUGURATION', date: '26 DEC', venue: 'YMCA, CHENNAI', price: '₹999' },
+  { id: 'new-year', name: 'NEW YEAR PARTY', date: '31 DEC', venue: 'BEACH HOUSE ECR, CHENNAI', price: '₹3,999' },
+  { id: 'camp', name: 'TRAINING CAMP', date: '02–16 JAN', venue: 'BEL ACADEMY, CHENNAI', price: '₹999' },
+  { id: 'selection', name: 'SELECTION TRIALS', date: '23 JAN–27 FEB', venue: '6 CITIES', price: '₹499' },
+  { id: 'finale', name: 'GRAND FINALE', date: '06 MAR', venue: 'JAWAHARLAL NEHRU INDOOR STADIUM', price: '₹999' },
 ]
 
 export default function Tickets() {
@@ -40,14 +41,17 @@ export default function Tickets() {
       */}
       <div className="relative z-10 flex flex-col lg:flex-row w-full flex-1 items-start lg:items-center justify-start lg:justify-between min-h-[100dvh] lg:min-h-screen px-5 sm:px-10 lg:pl-0 lg:pr-10 xl:pr-14 py-8 lg:py-6 gap-6 lg:gap-8 xl:gap-12">
 
-        {/* ── PHONE VIEW BELL: Behind content on mobile exactly like previous layout (absolute inset-0 lg:hidden) ── */}
-        <div className="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none opacity-45 sm:opacity-55 lg:hidden">
+        {/* ── PHONE VIEW BELL: Behind top content on mobile with smooth bottom fade to #0B0B0A ── */}
+        <div className="absolute top-0 left-0 right-0 h-[480px] sm:h-[540px] overflow-hidden z-0 pointer-events-none opacity-45 sm:opacity-55 lg:hidden">
           <HangingBell />
-          {/* Mobile radial scrim keeping text sharp while bell hangs visibly behind */}
+          {/* Mobile radial & bottom scrim keeping text sharp while bell fades seamlessly into background */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
-              background: 'radial-gradient(circle at 50% 40%, rgba(11,11,10,0.5) 0%, rgba(11,11,10,0.85) 75%, #0B0B0A 100%)',
+              background: `
+                radial-gradient(circle at 50% 40%, rgba(11,11,10,0.45) 0%, rgba(11,11,10,0.85) 75%, #0B0B0A 100%),
+                linear-gradient(180deg, transparent 60%, #0B0B0A 100%)
+              `,
             }}
           />
         </div>
@@ -65,9 +69,7 @@ export default function Tickets() {
             <div className="p-4 xl:p-4.5 bg-[#141210]/95 border border-[#C5A15A]/35 shadow-[0_8px_28px_rgba(0,0,0,0.7)] backdrop-blur-md relative overflow-hidden">
               <div className="flex items-center justify-between pb-2.5 border-b border-white/10">
                 <div className="flex items-center gap-2">
-                  <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-[#C5A15A]" fill="currentColor">
-                    <path d="M2 19h20v2H2v-2zm1.5-12l4.5 4.5L12 4l4 7.5L20.5 7 19 17H5L3.5 7z" />
-                  </svg>
+                  <img src={belLogo} alt="BEL Official Crest" className="w-4 h-4 object-contain filter drop-shadow-[0_1px_4px_rgba(197,161,90,0.5)]" />
                   <span className="font-heading text-[10.5px] font-bold tracking-[0.2em] text-[#C5A15A] uppercase">
                     RINGSIDE VIP PRIVILEGES
                   </span>
@@ -98,10 +100,10 @@ export default function Tickets() {
 
               <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between">
                 <span className="font-heading text-[8.5px] tracking-wider text-[#A7A095] uppercase">
-                  150 SEATS PER NIGHT
+                  150 RINGSIDE SEATS
                 </span>
                 <a
-                  href="#/tickets"
+                  href="#/tickets?id=finale"
                   className="font-heading text-[9px] font-bold tracking-widest text-[#C5A15A] hover:text-[#F2E9D7] uppercase transition-colors inline-flex items-center gap-1 cursor-pointer"
                 >
                   <span>VIP PASSES</span>
@@ -117,7 +119,7 @@ export default function Tickets() {
 
           {/* Eyebrow - Placed right up at the top */}
           <div className="inline-flex items-center gap-2 px-3 py-1 border border-[#C5A15A]/40 bg-[#161513]/85 backdrop-blur-sm mb-3 sm:mb-3.5 w-fit shadow-[0_4px_16px_rgba(0,0,0,0.6)]">
-            <span className="w-2 h-2 rounded-full bg-[#C5A15A] animate-pulse" />
+            <img src={belLogo} alt="BEL" className="w-3.5 h-3.5 object-contain filter drop-shadow-[0_1px_4px_rgba(197,161,90,0.5)]" />
             <ScrollTypeText
               as="span"
               className="font-heading text-[10px] sm:text-xs font-semibold tracking-[0.28em] text-[#C5A15A] uppercase"
@@ -130,8 +132,8 @@ export default function Tickets() {
 
           {/* Headline */}
           <h2 className="font-display text-3xl sm:text-5xl lg:text-[3.25rem] xl:text-[4rem] leading-[0.92] tracking-[0.01em] uppercase text-[#F2E9D7] max-w-2xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
-            <ScrollTypeText as="span" className="block" start={0.16} end={0.48}>
-              EXPERIENCE FIGHT NIGHT.
+            <ScrollTypeText as="span" className="block text-2xl sm:text-4xl lg:text-[2.6rem] xl:text-[3.2rem]" start={0.16} end={0.48}>
+              WHERE BOXING MEETS ENTERTAINMENT.
             </ScrollTypeText>
             <ScrollTypeText as="span" className="block text-[#C5A15A] mt-1 sm:mt-1.5" start={0.38} end={0.68}>
               LIVE AT RINGSIDE.
@@ -199,7 +201,7 @@ export default function Tickets() {
               {EVENT_PILLS.map((ev, i) => (
                 <a
                   key={i}
-                  href="#/tickets"
+                  href={`#/tickets?id=${ev.id}`}
                   className="group block p-2 sm:p-2.5 border border-white/10 bg-[#161513]/80 backdrop-blur-sm hover:border-[#C5A15A]/70 hover:bg-[#1c1a17] transition-all cursor-pointer text-left shadow-[0_4px_16px_rgba(0,0,0,0.5)]"
                 >
                   <div className="flex items-center justify-between">
@@ -228,9 +230,12 @@ export default function Tickets() {
           {/* Mobile-only VIP privileges card at bottom of scroll */}
           <div className="mt-4 sm:mt-5 p-3.5 bg-[#141210]/90 border border-white/10 lg:hidden">
             <div className="flex items-center justify-between pb-1.5 border-b border-white/10">
-              <span className="font-heading text-[10px] font-bold tracking-[0.2em] text-[#C5A15A] uppercase">
-                RINGSIDE VIP PRIVILEGES
-              </span>
+              <div className="flex items-center gap-1.5">
+                <img src={belLogo} alt="BEL" className="w-3.5 h-3.5 object-contain" />
+                <span className="font-heading text-[10px] font-bold tracking-[0.2em] text-[#C5A15A] uppercase">
+                  RINGSIDE VIP PRIVILEGES
+                </span>
+              </div>
               <span className="font-heading text-[8px] tracking-wider text-[#A7A095] uppercase">
                 LIMITED
               </span>
