@@ -97,3 +97,32 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #8C6B37;
 }
+
+/* Smooth Infinite Marquee */
+@keyframes marquee-infinite {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex !important;
+  width: max-content !important;
+  animation: marquee-infinite 18s linear infinite !important;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* BEL Extended Bold Brand Typography */
+.bel-wordmark {
+  font-family: "Archivo Black", "Arial Black", "Impact", system-ui, sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}

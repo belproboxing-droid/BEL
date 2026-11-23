@@ -187,7 +187,7 @@ export default function UpcomingEvents() {
                   start={0.24}
                   end={0.55}
                 >
-                  SELECTION TOUR — 6 FRANCHISE TEAMS
+                  SELECTION TOUR — 6 CITIES
                 </ScrollTypeText>
                 <span className="font-heading text-[8.5px] tracking-wider text-[#A7A095] uppercase shrink-0 ml-2">
                   2027
@@ -208,11 +208,8 @@ export default function UpcomingEvents() {
                         className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
                       />
                     </div>
-                    <span className="font-heading text-[8px] sm:text-[8.5px] font-bold tracking-wider text-[#F2E9D7] group-hover:text-[#C5A15A] transition-colors leading-tight uppercase">
+                    <span className="font-heading text-[8.5px] sm:text-[9.5px] font-bold tracking-wider text-[#F2E9D7] group-hover:text-[#C5A15A] transition-colors leading-tight uppercase mt-0.5">
                       {c.city}
-                    </span>
-                    <span className="font-heading text-[7px] font-semibold tracking-wider text-[#C5A15A]/70 uppercase leading-tight">
-                      {c.franchise}
                     </span>
                     <span className="font-heading text-[7px] tracking-wider text-[#8C6B37]">
                       {c.date}

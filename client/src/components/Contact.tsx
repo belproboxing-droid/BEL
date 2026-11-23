@@ -93,6 +93,20 @@ export default function Contact() {
 
               <div className="flex items-start gap-3">
                 <span className="font-heading text-[10px] tracking-[0.2em] text-[#C5A15A] uppercase w-20 shrink-0 mt-0.5">
+                  YOUTUBE
+                </span>
+                <a
+                  href="https://youtube.com/@belproboxing?si=F_IWOqN8R1cSi0C9"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-body text-xs sm:text-sm text-[#F2E9D7] hover:text-[#C5A15A] transition-colors"
+                >
+                  @belproboxing
+                </a>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <span className="font-heading text-[10px] tracking-[0.2em] text-[#C5A15A] uppercase w-20 shrink-0 mt-0.5">
                   WEB
                 </span>
                 <span className="font-body text-xs sm:text-sm text-[#C5A15A]">

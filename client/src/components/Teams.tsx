@@ -580,16 +580,16 @@ export default function Teams() {
             </div>
 
             {/* Continuous Marquee Ticker Ribbon */}
-            <div className="mt-3 w-full max-w-[540px] overflow-hidden border-y border-[#8C6B37]/20 py-1.5 [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+            <div className="mt-3 w-full max-w-[540px] overflow-hidden border-y border-[#8C6B37]/25 py-2 [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] pointer-events-auto">
               <div className="flex whitespace-nowrap animate-marquee">
-                {[...franchises, ...franchises].map((item, idx) => (
+                {[...franchises, ...franchises, ...franchises, ...franchises].map((item, idx) => (
                   <span
                     key={idx}
-                    className="mx-4 font-heading text-[10px] tracking-[0.24em] text-[#5A544C] uppercase flex items-center gap-3"
+                    className="mx-3.5 font-heading text-[10.5px] tracking-[0.22em] text-[#5A544C] uppercase flex items-center gap-2.5 shrink-0"
                   >
                     <span className="text-[#8C6B37] font-semibold">{item.name}</span>
-                    <span>{item.sub}</span>
-                    <span className="text-[#C5A15A]/60">•</span>
+                    <span className="text-[#0B0B0A] font-bold">{item.sub}</span>
+                    <span className="text-[#C5A15A]/70">•</span>
                   </span>
                 ))}
               </div>

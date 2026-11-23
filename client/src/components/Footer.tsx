@@ -26,7 +26,7 @@ export default function Footer() {
               className="h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_2px_12px_rgba(197,161,90,0.35)]"
             />
             <div className="flex flex-col">
-              <span className="font-heading text-lg font-bold tracking-[0.14em] text-[#F2E9D7] leading-none">
+              <span className="bel-wordmark text-lg text-[#F2E9D7] leading-none">
                 BEL
               </span>
               <span className="font-heading text-[8px] tracking-[0.2em] text-[#C5A15A] uppercase mt-0.5">
@@ -55,6 +55,17 @@ export default function Footer() {
                 className="font-heading text-xs tracking-[0.22em] text-[#C5A15A] uppercase hover:text-[#F2E9D7] transition-colors inline-flex items-center gap-1.5"
               >
                 <span>INSTAGRAM</span>
+                <span>↗</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://youtube.com/@belproboxing?si=F_IWOqN8R1cSi0C9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-heading text-xs tracking-[0.22em] text-[#C5A15A] uppercase hover:text-[#F2E9D7] transition-colors inline-flex items-center gap-1.5"
+              >
+                <span>YOUTUBE</span>
                 <span>↗</span>
               </a>
             </li>

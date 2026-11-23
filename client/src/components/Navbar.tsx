@@ -24,7 +24,7 @@ export default function Navbar() {
             className="h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_2px_10px_rgba(197,161,90,0.4)]"
           />
           <div className="flex items-center">
-            <span className="font-heading text-xl sm:text-2xl font-bold tracking-[0.14em] text-[#F2E9D7] leading-none">
+            <span className="bel-wordmark text-xl sm:text-2xl text-[#F2E9D7] leading-none">
               BEL
             </span>
             <span className="ml-2.5 font-heading text-[10px] sm:text-xs tracking-[0.24em] text-[#C5A15A] uppercase border-l border-white/20 pl-2.5 hidden xs:inline">

@@ -237,7 +237,7 @@ export default function About() {
             start={0.52}
             end={0.82}
           >
-            Season 1 · Tamil Nadu — 600+ Boxers, 6 City Teams, Olympic Training Academies &amp; Structured Athlete Placements.
+            Season 1 · Tamil Nadu — 600+ Boxers, 6 City Teams, Training Academies &amp; Structured Athlete Placements.
           </ScrollTypeText>
 
           {/* Horizontal Highlight Box */}
