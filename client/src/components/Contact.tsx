@@ -82,12 +82,12 @@ export default function Contact() {
                   INSTAGRAM
                 </span>
                 <a
-                  href="https://instagram.com/bel_officialindia"
+                  href="https://www.instagram.com/belproboxing?fqnt=MTl1MzJhOHY5YzVuYw=="
                   target="_blank"
                   rel="noreferrer"
                   className="font-body text-xs sm:text-sm text-[#F2E9D7] hover:text-[#C5A15A] transition-colors"
                 >
-                  @bel_officialindia
+                  @belproboxing
                 </a>
               </div>
 

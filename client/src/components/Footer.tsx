@@ -47,6 +47,17 @@ export default function Footer() {
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href="https://www.instagram.com/belproboxing?fqnt=MTl1MzJhOHY5YzVuYw=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-heading text-xs tracking-[0.22em] text-[#C5A15A] uppercase hover:text-[#F2E9D7] transition-colors inline-flex items-center gap-1.5"
+              >
+                <span>INSTAGRAM</span>
+                <span>↗</span>
+              </a>
+            </li>
           </ul>
 
           {/* Right: BACK TO TOP action matching template */}

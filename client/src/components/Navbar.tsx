@@ -14,7 +14,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <header className="absolute md:fixed inset-x-0 top-0 z-[100] w-full bg-gradient-to-b from-[#0B0B0A]/90 to-transparent transition-all">
+    <header className="absolute md:fixed inset-x-0 top-0 z-[100] w-full bg-[#0B0B0A]/85 md:bg-gradient-to-b md:from-[#0B0B0A]/90 md:to-transparent backdrop-blur-md md:backdrop-blur-none border-b border-white/20 md:border-b-0 shadow-[0_4px_24px_rgba(0,0,0,0.7)] md:shadow-none transition-all">
       <nav className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-6 sm:px-10 lg:px-16">
         {/* Left: BEL Official Emblem & Uniform Brand Lockup */}
         <a href="#top" className="flex items-center gap-3 group">

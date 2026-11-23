@@ -42,15 +42,15 @@ export default function Tickets() {
       <div className="relative z-10 flex flex-col lg:flex-row w-full flex-1 items-start lg:items-center justify-start lg:justify-between min-h-[100dvh] lg:min-h-screen px-5 sm:px-10 lg:pl-0 lg:pr-10 xl:pr-14 py-8 lg:py-6 gap-6 lg:gap-8 xl:gap-12">
 
         {/* ── PHONE VIEW BELL: Behind top content on mobile with smooth bottom fade to #0B0B0A ── */}
-        <div className="absolute top-0 left-0 right-0 h-[480px] sm:h-[540px] overflow-hidden z-0 pointer-events-none opacity-45 sm:opacity-55 lg:hidden">
+        <div className="absolute top-0 left-0 right-0 h-[480px] sm:h-[540px] overflow-hidden z-0 pointer-events-none opacity-65 lg:hidden [filter:brightness(1.18)_contrast(1.06)]">
           <HangingBell />
-          {/* Mobile radial & bottom scrim keeping text sharp while bell fades seamlessly into background */}
+          {/* Mobile radial & bottom scrim keeping text sharp while bell shines bright with warm metallic luster */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
               background: `
-                radial-gradient(circle at 50% 40%, rgba(11,11,10,0.45) 0%, rgba(11,11,10,0.85) 75%, #0B0B0A 100%),
-                linear-gradient(180deg, transparent 60%, #0B0B0A 100%)
+                radial-gradient(circle at 50% 40%, rgba(11,11,10,0.15) 0%, rgba(11,11,10,0.60) 75%, #0B0B0A 100%),
+                linear-gradient(180deg, transparent 65%, #0B0B0A 100%)
               `,
             }}
           />
