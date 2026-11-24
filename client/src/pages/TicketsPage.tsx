@@ -1001,16 +1001,14 @@ export default function TicketsPage({
           <button
             onClick={navigateToHome}
             className="flex items-center gap-3 group cursor-pointer"
+            aria-label="Back to home"
           >
             <img
               src={belLogo}
               alt="BEL Logo"
               className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_2px_10px_rgba(197,161,90,0.4)]"
             />
-            <span className="bel-wordmark text-xl text-[#F2E9D7]">
-              BEL
-            </span>
-            <span className="ml-2 font-heading text-xs tracking-[0.24em] text-[#C5A15A] uppercase border-l border-white/15 pl-3 hidden sm:inline">
+            <span className="font-heading text-xs tracking-[0.24em] text-[#C5A15A] uppercase hidden sm:inline">
               OFFICIAL TICKETS
             </span>
           </button>

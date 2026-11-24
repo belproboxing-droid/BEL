@@ -18,21 +18,16 @@ export default function Footer() {
       <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-16">
         {/* Main Bar matching Template */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/5">
-          {/* Left: BEL Official Emblem + Wordmark */}
-          <a href="#top" className="flex items-center gap-3 group">
+          {/* Left: BEL Official Emblem */}
+          <a href="#top" className="flex items-center gap-3 group" aria-label="Boxing Entertainment League">
             <img
               src={belLogo}
               alt="BEL Official Emblem"
               className="h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_2px_12px_rgba(197,161,90,0.35)]"
             />
-            <div className="flex flex-col">
-              <span className="bel-wordmark text-lg text-[#F2E9D7] leading-none">
-                BEL
-              </span>
-              <span className="font-heading text-[8px] tracking-[0.2em] text-[#C5A15A] uppercase mt-0.5">
-                BOXING ENTERTAINMENT LEAGUE
-              </span>
-            </div>
+            <span className="font-heading text-[9px] sm:text-[10px] tracking-[0.2em] text-[#C5A15A] uppercase">
+              BOXING ENTERTAINMENT LEAGUE
+            </span>
           </a>
 
           {/* Center: Clean Nav Links matching template */}
