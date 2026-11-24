@@ -67,13 +67,13 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Giant Display Headline: FORGE in Ivory, CHAMPIONS in Antique Gold */}
+            {/* Giant Display Headline: CHAMPIONS in Ivory, RISE in Antique Gold */}
             <h1 className="font-display leading-[0.85] tracking-[0.01em]">
               <span className="block text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8rem] text-[#F2E9D7] uppercase drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
-                FORGE
+                CHAMPIONS
               </span>
               <span className="block text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8rem] text-[#C5A15A] uppercase drop-shadow-[0_4px_28px_rgba(197,161,90,0.35)]">
-                CHAMPIONS
+                RISE
               </span>
             </h1>
 

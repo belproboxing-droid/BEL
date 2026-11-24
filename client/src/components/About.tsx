@@ -321,7 +321,7 @@ export default function About() {
               start={0.42}
               end={0.56}
             >
-              10+
+              20+
             </ScrollTypeText>
             <ScrollTypeText
               as="div"
@@ -337,7 +337,7 @@ export default function About() {
               start={0.48}
               end={0.72}
             >
-              Years in combat sports
+              Years experience in boxing
             </ScrollTypeText>
           </div>
 
@@ -349,7 +349,7 @@ export default function About() {
               start={0.46}
               end={0.60}
             >
-              3+
+              5+
             </ScrollTypeText>
             <ScrollTypeText
               as="div"
@@ -404,7 +404,7 @@ export default function About() {
               start={0.60}
               end={0.72}
             >
-              🥇 2007
+              2005
             </ScrollTypeText>
             <ScrollTypeText
               as="div"
@@ -420,7 +420,7 @@ export default function About() {
               start={0.64}
               end={0.80}
             >
-              RDS State School Championship – Gold Medal, Nagercoil
+              SGFI – School Games Federation of India National Championship Bronze Medalist – Ludhiana, Punjab
             </ScrollTypeText>
           </div>
 
@@ -432,7 +432,7 @@ export default function About() {
               start={0.68}
               end={0.78}
             >
-              🥇 2008
+              2010
             </ScrollTypeText>
             <ScrollTypeText
               as="div"
@@ -448,7 +448,7 @@ export default function About() {
               start={0.72}
               end={0.86}
             >
-              Senior State Open Tournament – Gold Medal, Thiruvottiyur
+              University National Championship – Jodhpur, Rajasthan
             </ScrollTypeText>
           </div>
 
@@ -466,7 +466,7 @@ export default function About() {
               start={0.76}
               end={0.90}
             >
-              Tamil Nadu State Championships
+              State Level Championship
             </ScrollTypeText>
             <ScrollTypeText
               as="div"
@@ -482,7 +482,7 @@ export default function About() {
               start={0.82}
               end={0.96}
             >
-              🥈 3 Silver Medals
+              🥇 3 Gold · 🥈 2 Silver
             </ScrollTypeText>
           </div>
         </div>

@@ -269,12 +269,12 @@ export const SELECTION_SUBTICKETS: TicketData[] = [
 
 // ─── 5 Main Event Cards ───
 export const MAIN_EVENTS: TicketData[] = [
-  // 1. BEL Launch (1999 strike 999) - Antique Gold
+  // 1. BEL Inauguration (999 strike 499) - Antique Gold
   {
     id: 'launch',
     name: '1. BEL Inauguration',
-    originalPrice: '₹1,999',
-    discountPrice: '₹999',
+    originalPrice: '₹999',
+    discountPrice: '₹499',
     badgeLabel: 'EARLY BIRD OFFER',
     description: 'Get your pass to the official BEL Inauguration at an exclusive early bird price.',
     brand: 'BEL',
@@ -296,16 +296,16 @@ export const MAIN_EVENTS: TicketData[] = [
     stubLogo: 'BEL',
     stubBottom: 'BOXING ENTERTAINMENT LEAGUE',
     image: grandLaunchFightBg,
-    color: '#C8B78B',
-    inkColor: '#1F2A30',
+    color: '#3A0D14',
+    inkColor: '#F2E9D7',
   },
 
-  // 2. BEL New Year Party (5999 strike 3999) - Sunset Amber Gold (#F4A64A)
+  // 2. BEL New Year Party (5999 strike 2999) - Sunset Amber Gold (#F4A64A)
   {
     id: 'new-year',
     name: '2. BEL New Year Party',
     originalPrice: '₹5,999',
-    discountPrice: '₹3,999',
+    discountPrice: '₹2,999',
     priceSuffix: 'per person',
     badgeLabel: 'EARLY BIRD OFFER',
     description: 'Celebrate the New Year with us! Enjoy unlimited food and drinks with your ticket.',
@@ -328,8 +328,8 @@ export const MAIN_EVENTS: TicketData[] = [
     stubLogo: 'BEL',
     stubBottom: 'BOXING ENTERTAINMENT LEAGUE',
     image: partyBg,
-    color: '#F4A64A',
-    inkColor: '#1F2A30',
+    color: '#0B1F3A',
+    inkColor: '#F2E9D7',
   },
 
   // 3. Training Camp (1999 strike 999) - Fight Red (#DC2626)
@@ -421,8 +421,8 @@ export const MAIN_EVENTS: TicketData[] = [
     stubLogo: 'BEL',
     stubBottom: 'BOXING ENTERTAINMENT LEAGUE',
     image: finaleFightBg,
-    color: '#C5A15A',
-    inkColor: '#1F2A30',
+    color: '#000000',
+    inkColor: '#C5A15A',
   },
 ]
 
@@ -508,8 +508,8 @@ export function BelTicket({
   scale: number
 }) {
   const ticketColor = ticket.color || '#C8B78B'
-  const ticketInk = ticket.inkColor || '#1F2A30'
   const isDark = isDarkColor(ticketColor)
+  const ticketInk = ticket.inkColor || (isDark ? '#F2E9D7' : '#1F2A30')
   const ticketLine = isDark ? 'rgba(255, 255, 255, 0.22)' : `${ticketColor}b3` // ~70% opacity
 
   const lab: CSSProperties = {
@@ -922,8 +922,8 @@ export default function TicketsPage({
     selectedId.startsWith('selection-')
 
   const ticketColor = selectedTicket.color || '#C8B78B'
-  const ticketInk = selectedTicket.inkColor || '#1F2A30'
   const isDarkSelected = isDarkColor(ticketColor)
+  const ticketInk = selectedTicket.inkColor || (isDarkSelected ? '#F2E9D7' : '#1F2A30')
 
   // Listen to hash changes if an event is passed via URL query
   useEffect(() => {
@@ -1176,7 +1176,7 @@ export default function TicketsPage({
                       className="font-heading text-[9px] tracking-[0.16em] uppercase px-1.5 py-0.5 font-bold"
                       style={{
                         background: t.color,
-                        color: t.inkColor || '#1F2A30',
+                        color: t.inkColor || (isDarkT ? '#F2E9D7' : '#1F2A30'),
                         border: isDarkT ? '1px solid rgba(255,255,255,0.3)' : undefined,
                       }}
                     >
