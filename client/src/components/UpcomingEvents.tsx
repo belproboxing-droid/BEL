@@ -153,7 +153,7 @@ interface FaceData {
 
 export default function UpcomingEvents() {
   const sectionRef = useRef<HTMLElement>(null)
-  const [events, setEvents] = useState<EventsMap>(() => loadInitialEvents())
+  const [events] = useState<EventsMap>(() => loadInitialEvents())
   const [view, setView] = useState<FaceData>({ y: 2026, m: 11 })
   const [rotation, setRotation] = useState(0)
   const [faceA, setFaceA] = useState<FaceData>({ y: 2026, m: 11 })
@@ -297,30 +297,6 @@ export default function UpcomingEvents() {
     setPanelOpen(true)
   }
 
-  const handleUpdateEvent = (idx: number, val: string) => {
-    if (!curKey) return
-    setEvents((prev) => {
-      const list = [...(prev[curKey] || [])]
-      list[idx] = val
-      return { ...prev, [curKey]: list }
-    })
-  }
-
-  const handleDeleteEvent = (idx: number) => {
-    if (!curKey) return
-    setEvents((prev) => {
-      const list = [...(prev[curKey] || [])]
-      list.splice(idx, 1)
-      const next = { ...prev }
-      if (list.length === 0) {
-        next[curKey] = []
-      } else {
-        next[curKey] = list
-      }
-      return next
-    })
-  }
-
   const renderFaceContent = (y: number, m: number) => {
     const first = new Date(y, m, 1).getDay()
     const days = new Date(y, m + 1, 0).getDate()
@@ -332,11 +308,11 @@ export default function UpcomingEvents() {
         <span className="crop tr" />
         <span className="crop bl" />
 
-        <div className="year" contentEditable suppressContentEditableWarning>
+        <div className="year">
           {y}
         </div>
         <div className="month-row">
-          <div className="month" contentEditable suppressContentEditableWarning>
+          <div className="month">
             {MONTHS[m]}
           </div>
           {MONTH_EVENTS[`${y}-${m}`] && (
@@ -379,7 +355,7 @@ export default function UpcomingEvents() {
                 onMouseLeave={scheduleClose}
                 onClick={() => openPanel(y, m, dayNum)}
               >
-                <span className="num" contentEditable suppressContentEditableWarning>
+                <span className="num">
                   {dayNum}
                 </span>
                 {placeTag && <span className="place-tag">{placeTag}</span>}
@@ -713,17 +689,7 @@ export default function UpcomingEvents() {
                     ) : (
                       currentList.map((text, idx) => (
                         <li key={idx}>
-                          <input
-                            value={text}
-                            onChange={(e) => handleUpdateEvent(idx, e.target.value)}
-                          />
-                          <button
-                            type="button"
-                            onClick={() => handleDeleteEvent(idx)}
-                            aria-label="Delete event"
-                          >
-                            ✕
-                          </button>
+                          <span className="ep-text">{text}</span>
                         </li>
                       ))
                     )}

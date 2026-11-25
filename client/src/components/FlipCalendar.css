@@ -457,26 +457,11 @@
   border-radius: 8px;
   padding: 7px 10px;
 }
-.bel-flip-cal .ep-list li input {
-  border: none;
-  background: transparent;
+.bel-flip-cal .ep-list li .ep-text {
   color: var(--panel-ink);
-  font: inherit;
   font-size: 13.5px;
+  line-height: 1.35;
   flex: 1;
-  outline: none;
-  min-width: 0;
-}
-.bel-flip-cal .ep-list li button {
-  border: none;
-  background: none;
-  color: #e05252;
-  cursor: pointer;
-  font-size: 14px;
-  opacity: 0.75;
-}
-.bel-flip-cal .ep-list li button:hover {
-  opacity: 1;
 }
 .bel-flip-cal .ep-empty {
   font-size: 12px;
