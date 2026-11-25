@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import gloveLeft from '../assets/images/glove-left.webp'
-import gloveRight from '../assets/images/glove-right.webp'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -14,86 +13,58 @@ export default function PunchAnimation({ containerRef }: PunchAnimationProps) {
   const rootRef = useRef<HTMLDivElement>(null)
   const shakeWrapperRef = useRef<HTMLDivElement>(null)
   const leftArmRef = useRef<HTMLDivElement>(null)
-  const rightArmRef = useRef<HTMLDivElement>(null)
   const vignetteRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const root = rootRef.current
     const shakeWrapper = shakeWrapperRef.current
     const leftArm = leftArmRef.current
-    const rightArm = rightArmRef.current
     const vignette = vignetteRef.current
 
-    if (!root || !shakeWrapper || !leftArm || !rightArm) return
+    if (!root || !shakeWrapper || !leftArm) return
 
     const isMobile = window.innerWidth < 1024
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || isMobile) {
-      gsap.set([leftArm, rightArm], { xPercent: 0, rotation: 0, scale: 1, opacity: 0.85 })
+      gsap.set(leftArm, { xPercent: 0, rotation: 0, scale: 1, opacity: 0.85 })
       return
     }
 
-    // Set transform pivots to outer forearm edges
-    gsap.set(leftArm, { transformOrigin: '0% 50%', willChange: 'transform, opacity' })
-    gsap.set(rightArm, { transformOrigin: '100% 50%', willChange: 'transform, opacity' })
-
-    // Continuous, scroll-scrubbed punch timeline fully synced with section entrance
-    const tl = gsap.timeline()
-
-    // Phase 1: Entry / Wind-up (0% -> 25% of section entrance)
-    tl.set([leftArm, rightArm], { opacity: 0.9 })
-    tl.set(leftArm, {
-      xPercent: -20,
-      scale: 0.94,
-      rotation: -2,
-    })
-    tl.set(rightArm, {
-      xPercent: 20,
-      scale: 0.94,
-      rotation: 2,
+    // Set transform pivot to outer left forearm edge & start hidden/cocked back
+    gsap.set(leftArm, {
+      transformOrigin: '0% 50%',
+      willChange: 'transform, opacity',
+      opacity: 0,
+      xPercent: -30,
+      scale: 0.92,
+      rotation: -3,
     })
 
+    // Delayed punch timeline: fires after the section has revealed into view
+    const tl = gsap.timeline({ paused: true, delay: 0.45 })
+
+    // Phase 1: Entry / Wind-up
     tl.to(
       leftArm,
       {
+        opacity: 0.92,
         xPercent: -24,
         rotation: -4,
-        scale: 0.92,
-        duration: 0.25,
-        ease: 'power1.out',
-      },
-      'windup'
-    )
-    tl.to(
-      rightArm,
-      {
-        xPercent: 24,
-        rotation: 4,
-        scale: 0.92,
-        duration: 0.25,
+        scale: 0.94,
+        duration: 0.24,
         ease: 'power1.out',
       },
       'windup'
     )
 
-    // Phase 2: Explosive Strike toward center (25% -> 55% of scroll entrance)
+    // Phase 2: Explosive Strike toward center
     tl.to(
       leftArm,
       {
         xPercent: 0,
         rotation: 0,
         scale: 1.0,
-        duration: 0.3,
-        ease: 'power3.in',
-      },
-      'strike'
-    )
-    tl.to(
-      rightArm,
-      {
-        xPercent: 0,
-        rotation: 0,
-        scale: 1.0,
-        duration: 0.3,
+        opacity: 0.85,
+        duration: 0.26,
         ease: 'power3.in',
       },
       'strike'
@@ -139,9 +110,9 @@ export default function PunchAnimation({ containerRef }: PunchAnimationProps) {
     }
 
     // Phase 4: HOLD / STAY at center (65% -> 100% of scroll entrance)
-    // Gloves STAY joined at center through the rest of the scroll and when docked
+    // Glove STAYs at center through the rest of the scroll and when docked
     tl.to(
-      [leftArm, rightArm],
+      leftArm,
       {
         xPercent: 0,
         rotation: 0,
@@ -153,14 +124,12 @@ export default function PunchAnimation({ containerRef }: PunchAnimationProps) {
       'hold'
     )
 
-    // ScrollTrigger: Seamlessly scrubbed to the exact section entrance
-    // From when top enters bottom of viewport until top docks at top of viewport
+    // ScrollTrigger: Play after section has revealed (with 0.45s delay on timeline)
     const triggerTarget = containerRef?.current || root
     const st = ScrollTrigger.create({
       trigger: triggerTarget,
-      start: 'top bottom',
-      end: 'top top',
-      scrub: 0.4,
+      start: 'top 15%',
+      toggleActions: 'play none none reverse',
       animation: tl,
     })
 
@@ -192,18 +161,6 @@ export default function PunchAnimation({ containerRef }: PunchAnimationProps) {
               src={gloveLeft}
               alt="Left boxing glove striking toward center"
               className="w-full h-auto max-h-[90%] object-contain object-right drop-shadow-[0_10px_25px_rgba(0,0,0,0.8)]"
-            />
-          </div>
-
-          {/* Right Glove & Forearm */}
-          <div
-            ref={rightArmRef}
-            className="absolute right-0 top-0 w-1/2 h-full flex items-center justify-start"
-          >
-            <img
-              src={gloveRight}
-              alt="Right boxing glove striking toward center"
-              className="w-full h-auto max-h-[90%] object-contain object-left drop-shadow-[0_10px_25px_rgba(0,0,0,0.8)]"
             />
           </div>
         </div>

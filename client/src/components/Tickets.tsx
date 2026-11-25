@@ -6,9 +6,9 @@ import { ScrollTypeSection, ScrollTypeText } from './ScrollTypeReveal'
 const EVENT_PILLS = [
   { id: 'launch', name: 'INAUGURATION', date: '26 DEC', venue: 'YMCA, CHENNAI', price: '₹499' },
   { id: 'new-year', name: 'NEW YEAR PARTY', date: '31 DEC', venue: 'BEACH HOUSE ECR, CHENNAI', price: '₹2,999' },
-  { id: 'camp', name: 'TRAINING CAMP', date: '02–16 JAN', venue: 'BEL ACADEMY, CHENNAI', price: '₹999' },
-  { id: 'selection', name: 'SELECTION TRIALS', date: '23 JAN–27 FEB', venue: '6 CITIES', price: '₹499' },
-  { id: 'finale', name: 'GRAND FINALE', date: '06 MAR', venue: 'JAWAHARLAL NEHRU INDOOR STADIUM', price: '₹999' },
+  { id: 'camp', name: 'TRAINING CAMP', date: '13–27 FEB', venue: 'BEL ACADEMY, CHENNAI', price: '₹999' },
+  { id: 'selection', name: 'SELECTION TRIALS', date: '06 MAR–15 MAY', venue: '6 CITIES', price: '₹499' },
+  { id: 'finale', name: 'GRAND FINALE', date: '12 JUN', venue: 'JAWAHARLAL NEHRU INDOOR STADIUM', price: '₹999' },
 ]
 
 export default function Tickets() {

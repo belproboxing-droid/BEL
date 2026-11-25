@@ -1,0 +1,485 @@
+.bel-flip-cal {
+  --metal-1: #efe3c8;
+  --metal-2: #c5a15a;
+  --metal-3: #8c6b37;
+  --metal-4: #4d3b1e;
+  --metal-5: #231b0e;
+  --paper: #f7f4ee;
+  --paper-edge: #e2dcd0;
+  --ink: #0b0b0a;
+  --ink-soft: #6b6358;
+  --ink-faint: #cfc8ba;
+  --red: #8b1111;
+  --panel-bg: #141210;
+  --panel-ink: #f2e9d7;
+  --shadow: rgba(11, 11, 10, 0.45);
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+}
+
+.bel-flip-cal .stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+
+/* ---------- frame ---------- */
+.bel-flip-cal .unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.bel-flip-cal .frame-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+.bel-flip-cal .nav-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  background: linear-gradient(160deg, var(--metal-1), var(--metal-3) 60%, var(--metal-4));
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  color: var(--metal-5);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s;
+}
+.bel-flip-cal .nav-btn:active {
+  transform: scale(0.9);
+}
+.bel-flip-cal .nav-btn:focus-visible {
+  outline: 2px solid var(--metal-2);
+  outline-offset: 2px;
+}
+
+.bel-flip-cal .frame {
+  width: min(74vw, 400px);
+  aspect-ratio: 1 / 0.94;
+  border-radius: 26px;
+  background: linear-gradient(
+    135deg,
+    var(--metal-1),
+    var(--metal-2) 35%,
+    var(--metal-3) 60%,
+    var(--metal-2) 80%,
+    var(--metal-1)
+  );
+  position: relative;
+  box-shadow: 0 18px 40px var(--shadow), inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+  padding: 20px;
+}
+@media (max-width: 639px) {
+  .bel-flip-cal .frame-row {
+    gap: 6px;
+  }
+  .bel-flip-cal .nav-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+  .bel-flip-cal .frame {
+    width: min(78vw, 340px);
+    aspect-ratio: 1 / 1.1;
+    border-radius: 20px;
+    padding: 12px;
+  }
+  .bel-flip-cal .face {
+    padding: 10px 10px 16px;
+  }
+}
+.bel-flip-cal .frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 26px;
+  background: repeating-linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0.1) 0 1px,
+    transparent 1px 3px
+  );
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+.bel-flip-cal .screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  position: relative;
+  background: var(--paper-edge);
+  clip-path: inset(0 round 10px);
+  box-shadow: inset 0 2px 10px rgba(11, 11, 10, 0.5);
+}
+
+.bel-flip-cal .flip-card {
+  position: absolute;
+  inset: 0;
+  perspective: 1800px;
+  -webkit-perspective: 1800px;
+}
+.bel-flip-cal .flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform 0.68s cubic-bezier(0.65, 0, 0.35, 1);
+  transform: rotateX(0deg) translateZ(0.01px);
+}
+.bel-flip-cal .face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 12px 16px 16px;
+  display: flex;
+  flex-direction: column;
+}
+.bel-flip-cal .face.back {
+  transform: rotateX(180deg) translateZ(0.01px);
+}
+
+/* crop marks */
+.bel-flip-cal .crop {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: var(--ink-faint);
+  pointer-events: none;
+}
+.bel-flip-cal .crop.tl {
+  top: 8px;
+  left: 8px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+.bel-flip-cal .crop.tr {
+  top: 8px;
+  right: 8px;
+  border-top: 1px solid;
+  border-right: 1px solid;
+}
+.bel-flip-cal .crop.bl {
+  bottom: 8px;
+  left: 8px;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+}
+
+.bel-flip-cal .year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(11px, 2.2vw, 12.5px);
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  margin-bottom: 2px;
+  outline: none;
+}
+.bel-flip-cal .month-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 0 6px;
+}
+.bel-flip-cal .month {
+  font-size: clamp(22px, 6vw, 32px);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  margin: 0;
+  text-transform: uppercase;
+  outline: none;
+  word-break: break-word;
+  color: var(--ink);
+  flex-shrink: 0;
+}
+.bel-flip-cal .month-event {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(7.5px, 1.8vw, 9.5px);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--red);
+  text-align: right;
+  line-height: 1.2;
+}
+.bel-flip-cal .rule {
+  height: 1px;
+  background: var(--ink);
+  opacity: 0.75;
+  margin-bottom: 6px;
+}
+
+.bel-flip-cal .weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(8px, 1.7vw, 9.5px);
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  padding-bottom: 3px;
+}
+.bel-flip-cal .weekdays span {
+  text-align: center;
+}
+
+.bel-flip-cal .grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 1fr;
+  flex: 1;
+  border-top: 1px solid var(--ink-faint);
+  border-left: 1px solid var(--ink-faint);
+  position: relative;
+  z-index: 1;
+}
+.bel-flip-cal .cell {
+  border-right: 1px solid var(--ink-faint);
+  border-bottom: 1px solid var(--ink-faint);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2px 1px 6px;
+  font-size: clamp(9.5px, 2.1vw, 12px);
+  line-height: 1.1;
+  cursor: pointer;
+  position: relative;
+  color: var(--ink);
+  min-width: 0;
+}
+.bel-flip-cal .cell .place-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(5px, 1.25vw, 6.5px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--red);
+  line-height: 1;
+  margin-top: 1px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.bel-flip-cal .cell.empty {
+  cursor: default;
+  color: var(--ink-faint);
+}
+.bel-flip-cal .cell .num {
+  outline: none;
+  min-width: 1em;
+  text-align: center;
+}
+.bel-flip-cal .cell.today .num {
+  color: var(--red);
+  font-weight: 600;
+}
+.bel-flip-cal .cell.has-event .num {
+  color: var(--red);
+  font-weight: 700;
+}
+.bel-flip-cal .cell .dot {
+  position: absolute;
+  bottom: 10%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--red);
+}
+.bel-flip-cal .cell:not(.empty):hover {
+  background: rgba(197, 161, 90, 0.14);
+}
+.bel-flip-cal .cell[data-preview] {
+  cursor: pointer;
+}
+.bel-flip-cal .cell[data-preview]:hover::after {
+  content: attr(data-preview);
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  transform: translateX(-50%);
+  margin-bottom: 6px;
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--metal-2);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  line-height: 1.4;
+  padding: 5px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: 0 6px 16px rgba(11, 11, 10, 0.35);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.bel-flip-cal .redbar {
+  position: absolute;
+  left: 16px;
+  bottom: 10px;
+  width: 34%;
+  height: 2px;
+  background: var(--red);
+}
+
+/* stand */
+.bel-flip-cal .stand {
+  width: min(30vw, 148px);
+  margin-top: -4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bel-flip-cal .stand .bar {
+  width: 92%;
+  height: 12px;
+  border-radius: 7px;
+  background: linear-gradient(180deg, var(--metal-1), var(--metal-3) 50%, var(--metal-4));
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.45);
+  position: relative;
+}
+.bel-flip-cal .stand .bar::before,
+.bel-flip-cal .stand .bar::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  width: 7px;
+  height: 10px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, var(--metal-1), var(--metal-4));
+}
+.bel-flip-cal .stand .bar::before {
+  left: 14%;
+}
+.bel-flip-cal .stand .bar::after {
+  right: 14%;
+}
+.bel-flip-cal .stand .base {
+  width: 100%;
+  height: 14px;
+  margin-top: -2px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, var(--metal-2), var(--metal-5));
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.55);
+}
+
+/* ---------- events panel (compact below calendar) ---------- */
+.bel-flip-cal .events-panel {
+  width: min(86vw, 400px);
+  max-height: 210px;
+  background: var(--panel-bg);
+  color: var(--panel-ink);
+  border: 1px solid rgba(197, 161, 90, 0.35);
+  border-radius: 14px;
+  box-shadow: 0 14px 30px var(--shadow);
+  padding: 14px 16px;
+  display: none;
+  flex-direction: column;
+  animation: belPanelIn 0.2s ease-out;
+}
+.bel-flip-cal .events-panel.open {
+  display: flex;
+}
+@keyframes belPanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.bel-flip-cal .ep-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+.bel-flip-cal .ep-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  color: var(--metal-2);
+}
+.bel-flip-cal .ep-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--panel-ink);
+  font-size: 16px;
+  line-height: 1;
+  opacity: 0.65;
+  padding: 2px 4px;
+}
+.bel-flip-cal .ep-close:hover {
+  opacity: 1;
+}
+.bel-flip-cal .ep-sub {
+  font-size: 10px;
+  color: var(--metal-3);
+  margin-bottom: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.08em;
+}
+.bel-flip-cal .ep-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.bel-flip-cal .ep-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(197, 161, 90, 0.09);
+  border: 1px solid rgba(197, 161, 90, 0.2);
+  border-radius: 8px;
+  padding: 7px 10px;
+}
+.bel-flip-cal .ep-list li input {
+  border: none;
+  background: transparent;
+  color: var(--panel-ink);
+  font: inherit;
+  font-size: 13.5px;
+  flex: 1;
+  outline: none;
+  min-width: 0;
+}
+.bel-flip-cal .ep-list li button {
+  border: none;
+  background: none;
+  color: #e05252;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0.75;
+}
+.bel-flip-cal .ep-list li button:hover {
+  opacity: 1;
+}
+.bel-flip-cal .ep-empty {
+  font-size: 12px;
+  color: #a7a095;
+  padding: 4px 2px;
+}
