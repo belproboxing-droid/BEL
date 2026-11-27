@@ -141,7 +141,12 @@ export function ScrollTypeText({
   const prefersReducedMotion = useReducedMotion();
 
   const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
-  const skipTyping = prefersReducedMotion || isMobile;
+  const isBot =
+    typeof navigator !== "undefined" &&
+    /Googlebot|bingbot|DuckDuckBot|Baiduspider|YandexBot|Slurp|facebookexternalhit|Twitterbot|LinkedInBot/i.test(
+      navigator.userAgent
+    );
+  const skipTyping = prefersReducedMotion || isMobile || isBot;
 
   const cleanText = useMemo(() => (children || "").trim(), [children]);
   const characters = useMemo(() => Array.from(cleanText), [cleanText]);

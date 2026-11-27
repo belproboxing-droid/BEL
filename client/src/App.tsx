@@ -198,6 +198,24 @@ export default function App() {
     return () => window.removeEventListener('hashchange', onHashChange)
   }, [route])
 
+  // Sync page title and meta description per active view
+  useEffect(() => {
+    const title =
+      route === 'tickets'
+        ? 'Official Event Tickets | Boxing Entertainment League (BEL)'
+        : 'Boxing Entertainment League (BEL) | Official Website'
+    const description =
+      route === 'tickets'
+        ? 'Book official passes for Boxing Entertainment League (BEL) Season 1 events — Inauguration, New Year Party, Training Camp, 6-City Selection Tour, and Grand Finale.'
+        : "Boxing Entertainment League (BEL) is India's team-based professional boxing entertainment league featuring 6 city franchises across Tamil Nadu — Chennai Captains, Kovai Kings, Madurai Mavericks, Trichy Titans, Salem Soldiers, and Kumari Knights."
+
+    document.title = title
+    const descMeta = document.querySelector('meta[name="description"]')
+    if (descMeta) {
+      descMeta.setAttribute('content', description)
+    }
+  }, [route])
+
   // Smooth scroll with Lenis on desktop (native momentum scroll on mobile for top performance)
   useEffect(() => {
     if (route !== 'home') return
